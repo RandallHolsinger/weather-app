@@ -24,7 +24,7 @@ function CurrentWeather() {
     }
     
     const getLocalWeather = () => {
-        axios.get('/api/weather/current', {position}).then(res => {
+        axios.get('/api/weather/current').then(res => {
             getCurrent(res.data)
         })
     }
