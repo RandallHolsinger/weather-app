@@ -1,0 +1,7 @@
+.FiveDay {
+    color: #fff;
+    padding: 10px;
+    box-shadow: 3px 3px 3px black;
+    background: linear-gradient(180deg, #6398d4, #2074d5, #1a63b7);
+    height: 33%;
+}

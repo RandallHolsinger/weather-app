@@ -11,7 +11,15 @@ body {
    border-radius: 10px;
 }
 
-
 .weather-dashboard {
    margin: 20px 10px;
 }
+
+/* Global classes */
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
