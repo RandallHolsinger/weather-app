@@ -1,8 +1,25 @@
 .CurrentWeather {
+   margin-top: 20px;
+   border-radius: 10px;
+   height: 33%;
+   color: #fff;
+   padding: 10px;
+   box-shadow: 3px 3px 3px black;
+   background: linear-gradient(180deg, #6398d4, #2074d5, #1a63b7);
+}
 
+.current-weather-container {
+    display: flex;
+    justify-content: space-between;
 }
 
 .weather-icon {
-    width: 50px;
-    height: 50px;
+    width: 20%;
+    height: 20%;
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
