@@ -15,3 +15,5 @@ app.listen(SERVER_PORT, () => console.log(`Connected To Server Port ${SERVER_POR
 app.get('/api/weather/current/location/:lat/:lon', ctrl.current)
 
 app.get('/api/weather/fiveday/location/:lat/:lon', ctrl.fiveday)
+
+// app.get('/api/weather/sixteenday/location/:lat/:lon', ctrl.sixteenday)

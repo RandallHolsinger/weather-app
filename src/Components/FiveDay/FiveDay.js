@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { RotatingLines } from 'react-loader-spinner'
+import FadeIn from 'react-fade-in'
 import './FiveDay.css'
 
-function FiveDay() {
+function FiveDay(props) {
     const [fiveDay, setFiveDay] = useState([])
-    const [isLoading, setLoading] = useState(true)
+    const [isLoading, setLoading] = useState(false)
 
-    useEffect(() => {
-
-    },[])
-
+    
     const getFiveDay = () => {
-        axios.get(`/api/weather/fiveday`).then(res => {
-            setFiveDay(res.data)
-            setLoading(false)
-        })
+      const {lat, lon} = props
+      console.log('5day request', lat, lon)
+      axios.get(`/api/weather/fiveday/location/${lat}/${lon}`).then(res => {
+        setFiveDay(res.data)
+        setLoading(false)
+      })
+      console.log('5day data', fiveDay)
     }
+    
+    useEffect(() => {
+       getFiveDay()
+    },[fiveDay])
     
     return (
         <div className='FiveDay'>
@@ -25,22 +31,35 @@ function FiveDay() {
           </div>
           :
           <div className='five-day-container'>
-            <table>
-              <tr>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-              </tr>
-              <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-              </tr>
-            </table>
+              <FadeIn transitionDuration={1200}>
+            <ul>
+              <li className="day-container">
+                day
+                <img src="icons/c03d.png" alt="" className="day-image" />
+                <div className="day-inf0">100°</div>
+              </li>
+              <li className="day-container">
+                day
+                <img src="icons/c03d.png" alt="" className="day-image" />
+                <div className="day-inf0">100°</div>
+              </li>
+              <li className="day-container">
+                day
+                <img src="icons/c03d.png" alt="" className="day-image" />
+                <div className="day-inf0">100°</div>
+              </li>
+              <li className="day-container">
+                day
+                <img src="icons/c03d.png" alt="" className="day-image" />
+                <div className="day-inf0">100°</div>
+              </li>
+              <li className="day-container">
+                day
+                <img src="icons/c03d.png" alt="" className="day-image" />
+                <div className="day-inf0">100°</div>
+              </li>
+            </ul>
+              </FadeIn>
           </div>
         }
 

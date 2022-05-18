@@ -1,11 +1,12 @@
 .CurrentWeather {
-   margin-top: 20px;
+   margin: 0px 10px 0px 10px;
    border-radius: 10px;
    height: 33%;
    color: #fff;
    padding: 10px;
    box-shadow: 3px 3px 3px black;
    background: linear-gradient(180deg, #6398d4, #2074d5, #1a63b7);
+   position: relative;
 }
 
 .current-weather-container {

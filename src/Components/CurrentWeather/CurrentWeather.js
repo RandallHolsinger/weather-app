@@ -1,21 +1,24 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import './CurrentWeather.css'
 import axios from 'axios'
-import {RotatingLines} from 'react-loader-spinner'
+import { RotatingLines } from 'react-loader-spinner'
 
-function CurrentWeather() {
+function CurrentWeather(props) {
     const [currentWeather, getCurrent] = useState([])
     const [isLoading, setLoading] = useState(true)
     
     useEffect(() => {
         getLocalWeather()
-    },[])
-    
-    const getLocalWeather = (lat, lon) => {
+    },[currentWeather])
+      
+    const getLocalWeather = () => {
+            const {lat, lon} = props
+            console.log('current request', lat, lon)
             axios.get(`/api/weather/current/location/${lat}/${lon}`).then(res => {
             getCurrent(res.data)
             setLoading(false)
-        })
+          })
+          console.log('current data', currentWeather)
     }
 
     return (
