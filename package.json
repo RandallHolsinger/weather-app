@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
@@ -12,6 +13,7 @@
     "axios": "^0.24.0",
     "dotenv": "^11.0.0",
     "express": "^4.17.2",
+    "font-awesome": "^4.7.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-fade-in": "^2.0.1",
@@ -43,6 +45,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5125",
+  "proxy": "http://127.0.0.1:5125",
   "main": "server/server.js"
 }

@@ -1,14 +1,16 @@
 import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 import './App.css';
 import { Circles } from 'react-loader-spinner';
 import CurrentWeather from './Components/CurrentWeather/CurrentWeather'
 import FiveDay from './Components/FiveDay/FiveDay';
-import SixteenDay from './Components/SixteenDay/SixteenDay';
+import DailyDetails from './Components/DailyDetails/DailyDetails';
 
 
 function App() {
   
   const [currentLocation, setLocation] = useState({cordinates: {lat: '', lon:''}})
+  const [weather, setWeather] = useState([])
   const [isLoading, setLoading] = useState(true)
   
   const getCurrentLocation = () => {
@@ -17,6 +19,7 @@ function App() {
         //add functionality to get set weather from specific city
     } else {
         const handleSuccess = position => {
+          console.log(position)
           const {longitude, latitude} = position.coords
           setLocation({
             cordinates: {
@@ -25,6 +28,8 @@ function App() {
             }
           })
           setLoading(false)
+          console.log(currentLocation)
+          getWeather()
         }
         const handleError = error => {
           console.log({message: error})
@@ -32,11 +37,21 @@ function App() {
         navigator.geolocation.getCurrentPosition(handleSuccess, handleError)
     }
   }
+
+  const getWeather = () => {
+    console.log('current request', currentLocation.cordinates)
+    axios.get(`/api/weather/location/${lat}/${lon}`).then(res => {
+      setWeather(res.data)
+      console.log('Hello Weather!!!', res.data)
+    })
+  }
+
+  
   useEffect(() => {
     getCurrentLocation()
   },[])
 
-  const {lat, lon} = currentLocation.cordinates
+  
   return (
     <div className="App">
         <div className='weather-dashboard'>
@@ -48,11 +63,11 @@ function App() {
             :
             <div>
             <div className="image-banner">
-            <CurrentWeather lat={lat} lon={lon}/>
+            <CurrentWeather weatherData={weather}/>
               <h2></h2>
             </div>
-            <FiveDay lat={lat} lon={lon}/>
-            {/* <SixteenDay lat={lat} lon={lon}/> */}
+            <FiveDay weatherData={weather}/>
+            <DailyDetails weatherData={weather}/>
             </div>
           } 
         </div>

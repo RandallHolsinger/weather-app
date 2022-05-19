@@ -1,27 +1,26 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import { RotatingLines } from 'react-loader-spinner'
 import FadeIn from 'react-fade-in'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDroplet } from '@fortawesome/free-solid-svg-icons'
 import './FiveDay.css'
 
 function FiveDay(props) {
-    const [fiveDay, setFiveDay] = useState([])
-    const [isLoading, setLoading] = useState(false)
-
     
-    const getFiveDay = () => {
-      const {lat, lon} = props
-      console.log('5day request', lat, lon)
-      axios.get(`/api/weather/fiveday/location/${lat}/${lon}`).then(res => {
-        setFiveDay(res.data)
+  const [isLoading, setLoading] = useState(true)
+
+    const checkFiveDayProps = (props) => {
+      console.log('five day weather props!!!', props)
+      if(props) {
         setLoading(false)
-      })
-      console.log('5day data', fiveDay)
+      }
     }
     
+    
+    
     useEffect(() => {
-       getFiveDay()
-    },[fiveDay])
+       checkFiveDayProps(props)
+    }, [])
     
     return (
         <div className='FiveDay'>
@@ -37,26 +36,31 @@ function FiveDay(props) {
                 day
                 <img src="icons/c03d.png" alt="" className="day-image" />
                 <div className="day-inf0">100°</div>
+                <span><FontAwesomeIcon icon={faDroplet} />{' '}1%</span>
               </li>
               <li className="day-container">
                 day
                 <img src="icons/c03d.png" alt="" className="day-image" />
                 <div className="day-inf0">100°</div>
+                <span><FontAwesomeIcon icon={faDroplet} />{' '}1%</span>
               </li>
               <li className="day-container">
                 day
                 <img src="icons/c03d.png" alt="" className="day-image" />
                 <div className="day-inf0">100°</div>
+                <span><FontAwesomeIcon icon={faDroplet} />{' '}1%</span>
               </li>
               <li className="day-container">
                 day
                 <img src="icons/c03d.png" alt="" className="day-image" />
                 <div className="day-inf0">100°</div>
+                <span><FontAwesomeIcon icon={faDroplet} />{' '}1%</span>
               </li>
               <li className="day-container">
                 day
                 <img src="icons/c03d.png" alt="" className="day-image" />
                 <div className="day-inf0">100°</div>
+                <span><FontAwesomeIcon icon={faDroplet} />{' '}1%</span>
               </li>
             </ul>
               </FadeIn>
