@@ -6,19 +6,16 @@ function CurrentWeather(props) {
 
     const [isLoading, setLoading] = useState(true)
     
-    const checkCurrentWeatherProps = (props) => {
-      console.log('current weather props!!!', props)
+    const checkProps = (props) => {
       if(props) {
         setLoading(false)
-      } else {
-        return isLoading
-      }
+      } 
     }
     
     useEffect(() => {
-        checkCurrentWeatherProps(props)
-    },[])
-    
+      checkProps(props)
+    })
+
     return (
         <div className='CurrentWeather'>
             {isLoading ?

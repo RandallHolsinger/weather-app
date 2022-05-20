@@ -10,9 +10,9 @@ function FiveDay(props) {
   const [isLoading, setLoading] = useState(true)
 
     const checkFiveDayProps = (props) => {
-      console.log('five day weather props!!!', props)
       if(props) {
         setLoading(false)
+        console.log('five day weather props!!!', props)
       }
     }
     

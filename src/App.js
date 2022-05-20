@@ -9,7 +9,6 @@ import DailyDetails from './Components/DailyDetails/DailyDetails';
 
 function App() {
   
-  const [currentLocation, setLocation] = useState({cordinates: {lat: '', lon:''}})
   const [weather, setWeather] = useState([])
   const [isLoading, setLoading] = useState(true)
   
@@ -19,30 +18,21 @@ function App() {
         //add functionality to get set weather from specific city
     } else {
         const handleSuccess = position => {
-          console.log(position)
-          const {longitude, latitude} = position.coords
-          setLocation({
-            cordinates: {
-              lat: latitude,
-              lon: longitude
-            }
-          })
-          setLoading(false)
-          console.log(currentLocation)
-          getWeather()
+          const {latitude, longitude} = position.coords
+          getWeather(latitude, longitude)
         }
         const handleError = error => {
-          console.log({message: error})
+          console.log({message: error}) 
         }
         navigator.geolocation.getCurrentPosition(handleSuccess, handleError)
     }
   }
 
-  const getWeather = () => {
-    console.log('current request', currentLocation.cordinates)
+  const getWeather = (lat, lon) => {
     axios.get(`/api/weather/location/${lat}/${lon}`).then(res => {
       setWeather(res.data)
-      console.log('Hello Weather!!!', res.data)
+      setLoading(false)
+      console.log('Data', weather)
     })
   }
 
