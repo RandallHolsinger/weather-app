@@ -3,16 +3,16 @@ const {WEATHER_API_KEY} = process.env
 
 module.exports = {
 
-    current: async (req, res) => {
+    weather: async (req, res) => {
         const {lat, lon} = req.params
         console.log('hitting backend Current', lat, lon)
         try {
             await axios({
                 method: 'GET',
-                url: 'https://weatherbit-v1-mashape.p.rapidapi.com/current',
-                params: {lon: `${lon}`, lat: `${lat}`, units: 'imperial', lang: 'en'},
+                url: 'https://yahoo-weather5.p.rapidapi.com/weather',
+                params: {lat: `${lat}`, long: `${lon}`, format: 'json', u: 'f'},
                 headers: {
-                  'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com',
+                  'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com',
                   'X-RapidAPI-Key': `${WEATHER_API_KEY}`
                 }
             })
