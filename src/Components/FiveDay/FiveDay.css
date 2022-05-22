@@ -1,26 +1,36 @@
 .FiveDay {
+
+}
+
+.FiveDay h3 {
     color: #fff;
-    padding: 10px;
+    padding: 15px;
+    background: linear-gradient(135deg, #5d7fd0  , #0748b0, #14446c);
+    border-radius: 10px 10px 0px 0px;
+}
+
+.five-day-container {
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+    padding: 0px 10px 10px 10px;
     box-shadow: 3px 3px 3px black;
-    background: linear-gradient(180deg, #6398d4, #2074d5, #1a63b7);
-    border-radius: 10px;
+    background-color: #363636;
+    border: 1px solid #fff;
+    border-radius: 10px 10px 10px 10px;
     margin:0px 10px 10px 10px;
     height: auto;
 }
 
-.five-day-container {
-    border-radius: 10px;
-    display: flex;
-    width: 100%;
-    height: auto;
-}
+
 
 .five-day-container ul {
     display: flex;
-    justify-content: center space-between;
+    justify-content: center space-around;
     align-items: center;
     text-decoration: none;
     position: relative;
+    margin-top: 10px;
     width: 100%;
     height: 100%;
 
@@ -31,11 +41,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
     width: 100%;
 }
 
 .five-day-container ul li img {
-    width: 50%;
-    height: 33%;
+    width: 70px;
+    height: auto;
 }

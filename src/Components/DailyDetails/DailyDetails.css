@@ -1,22 +1,33 @@
-
 .DailyDetails {
+
+}
+
+
+.daily-details-container {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(180deg, #6398d4, #2074d5, #1a63b7);
+    background-color: #363636;
     color: #fff;
-    margin: 5px 10px;
+    margin: 20px 10px 10px 10px;
+    border: 1px solid #fff;
     border-radius: 10px;
     box-shadow: 3px 3px 3px black;
     height: auto;
-    padding: 10px;
 }
+
+.daily-details-container h3 {
+    color: #fff;
+    padding: 15px;
+    background: linear-gradient(135deg, #5d7fd0  , #0748b0, #14446c);
+    border-radius: 10px 10px 0px 0px;
+}
+
 
 .DailyDetails ul {
   list-style-type: none;
-  position: relative;
-  top: 0;
-  left:0;
-  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .DailyDetails ul li {

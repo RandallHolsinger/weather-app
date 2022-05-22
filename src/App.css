@@ -22,7 +22,7 @@ body {
     background-position: center;
     height: 50vh;
     padding: 10px;
-    box-shadow: 0px 0px 30px 50px #152324, 0px 0px 20px 20px inset #152324 ;
+    box-shadow: 0px 0px 30px 50px #152324, 0px 0px 5px 5px inset #152324 ;
 }
 
 .loader-container {

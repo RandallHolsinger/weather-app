@@ -5,7 +5,6 @@ module.exports = {
 
     weather: async (req, res) => {
         const {lat, lon} = req.params
-        console.log('hitting backend Current', lat, lon)
         try {
             await axios({
                 method: 'GET',

@@ -15,7 +15,8 @@ function CurrentWeather(props) {
     useEffect(() => {
       checkProps(props)
     })
-
+    
+    const {weatherData} = props
     return (
         <div className='CurrentWeather'>
             {isLoading ?
@@ -25,12 +26,12 @@ function CurrentWeather(props) {
               :
               <div className='current-weather-container'>
                 <div className='current-desc'>
-                  <h2>{props.weatherData.location.city}{', '}{props.weatherData.location.region}</h2>
-                  <h3>{props.weatherData.location.country}</h3>
-                  <h4>{props.weatherData.current_observation.condition.temperature}°</h4>
-                  <h4>{props.weatherData.current_observation.condition.text}</h4>
+                  <h2>{weatherData.location.city}{', '}{weatherData.location.region}</h2>
+                  <h3>{weatherData.location.country}</h3>
+                  <h4>{weatherData.current_observation.condition.temperature}°</h4>
+                  <h4>{weatherData.current_observation.condition.text}</h4>
                 </div>
-                  image location
+                <img src="icons/clear-day.svg" alt="" className="weather-icon" />
               </div> 
             }
         </div>

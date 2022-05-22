@@ -32,7 +32,7 @@ function App() {
     axios.get(`/api/weather/location/${lat}/${lon}`).then(res => {
       setWeather(res.data)
       setLoading(false)
-      console.log('Data', weather)
+      console.log('Data', res.data)
     })
   }
 
