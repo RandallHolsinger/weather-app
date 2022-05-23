@@ -8,10 +8,13 @@ app.use(express.json())
 
 const {SERVER_PORT} = process.env
 
-app.listen(SERVER_PORT, () => console.log(`Connected To Server Port ${SERVER_PORT}`))
+app.listen(SERVER_PORT, () => console.log(`Connected To Server Port: #${SERVER_PORT}`))
 
 //Get Current Weather
-
 app.get('/api/weather/location/:lat/:lon', ctrl.weather)
 
-// app.get('/api/weather/sixteenday/location/:lat/:lon', ctrl.sixteenday)
+//Get Default weather without location services
+
+
+//Get Searched Weather
+app.get('/api/weather/location/:search', ctrl.search)
