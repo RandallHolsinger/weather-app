@@ -40,9 +40,7 @@ function App() {
   }
 
   const getCurrentWeather = (lat, lon) => {
-    console.log('hitting getWeather', lat, lon)
     axios.get(`/api/weather/location/${lat}/${lon}`).then(res => {
-      console.log('response comming')
       setWeather(res.data)
       setLoading(false)
     })
@@ -51,7 +49,6 @@ function App() {
   const getCitiesList = (input) => {
     axios.get(`/api/cities/${input}`).then(res => {
       setCityList(res.data)
-      console.log('city list', res.data)
     })
   }
 
@@ -64,10 +61,8 @@ function App() {
   }
   
   const weatherSearch = (city) => {
-    console.log('comming in', city)
     axios.get(`/api/weather/location/${city}`).then(res => {
       setWeather(res.data)
-      console.log('search results', res.data)
     })
   }
 
