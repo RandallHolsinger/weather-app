@@ -16,7 +16,7 @@ function DailyDetails(props) {
 
     useEffect(() => {
         checkProps(props)
-    }, [])
+    }, [props])
     
     const {weatherData} = props
     return(

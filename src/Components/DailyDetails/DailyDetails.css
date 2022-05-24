@@ -39,6 +39,13 @@
   padding: 5px;
 }
 
+.DailyDetails ul li img {
+  background: linear-gradient(135deg, #5d7fd0  , #0748b0, #14446c);
+  width: 40px;
+  height: 40px;border-radius: 50%;
+}
+
+
 .daily-details-data {
   display: flex;
   justify-content: flex-end;  

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import WeatherIcon from '../WeatherIcon/WeatherIcon'
 import { RotatingLines } from 'react-loader-spinner'
 import FadeIn from 'react-fade-in'
 import './FiveDay.css'
@@ -15,7 +16,8 @@ function FiveDay(props) {
     
      useEffect(() => {
        checkFiveDayProps(props)
-    }, [])
+    }, [props])
+    
     
     const {weatherData} = props
     return (
@@ -30,38 +32,20 @@ function FiveDay(props) {
             <FadeIn transitionDuration={1200}>
             <h3>Five Day Forcast</h3>
             <ul>
-              <li className="day-container">
-                <h5>{weatherData.forecasts[0].day}</h5>
-                <img src="icons/rain.svg" alt="" className="weather-icon" />
-                <div className="five-day-high">{weatherData.forecasts[0].high}°</div>
-                <div className="five-day-low">{weatherData.forecasts[0].low}°</div>
-              </li>
-              <li className="day-container">
-                <h5>{weatherData.forecasts[1].day}</h5>
-                <img src="icons/rain.svg" alt="" className="day-image" />
-                <div className="five-day-high">{weatherData.forecasts[1].high}°</div>
-                <div className="five-day-low">{weatherData.forecasts[1].low}°</div>
-              </li>
-              <li className="day-container">
-                <h5>{weatherData.forecasts[2].day}</h5>
-                <img src="icons/rain.svg" alt="" className="day-image" />
-                <div className="five-day-high">{weatherData.forecasts[2].high}°</div>
-                <div className="five-day-low">{weatherData.forecasts[2].low}°</div>
-              </li>
-              <li className="day-container">
-                <h5>{weatherData.forecasts[3].day}</h5>
-                <img src="icons/rain.svg" alt="" className="day-image" />
-                <div className="five-day-high">{weatherData.forecasts[3].high}°</div>
-                <div className="five-day-low">{weatherData.forecasts[3].low}°</div>
-              </li>
-              <li className="day-container">
-                <h5>{weatherData.forecasts[4].day}</h5>
-                <img src="icons/rain.svg" alt="" className="day-image" />
-                <div className="five-day-high">{weatherData.forecasts[4].high}°</div>
-                <div className="five-day-low">{weatherData.forecasts[4].low}°</div>
-              </li>
+              {
+                Object.entries(weatherData.forecasts).slice(0, 5).map(([index, forecast]) => {
+                  return(
+                    <li key={index}>
+                        <h5>{forecast.day}</h5>
+                        <WeatherIcon code={forecast.code} />
+                        <div className="five-day-high">{forecast.high}°</div>
+                        <div className="five-day-low">{forecast.low}°</div>
+                    </li>
+                  )
+                })
+              }
             </ul>
-              </FadeIn>
+            </FadeIn>
           </div>
         }
 

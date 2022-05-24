@@ -12,10 +12,21 @@
     color: #fff;
     padding: 10px;
     box-shadow: 3px 3px 3px black;
-    background: linear-gradient(135deg, #5d7fd0  , #0748b0, #14446c)
+    background: linear-gradient(135deg, #5d7fd0  , #0748b0, #14446c);
 }
 
-.weather-icon {
+.current-weather-temp {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.current-weather-temp img {
+    width: 50px;
+    height: 50px;
+}
+
+.current-weather-icon {
     position: relative;
     width: 30%;
     height: auto;

@@ -14,7 +14,10 @@ app.listen(SERVER_PORT, () => console.log(`Connected To Server Port: #${SERVER_P
 app.get('/api/weather/location/:lat/:lon', ctrl.weather)
 
 //Get Default weather without location services
+app.get('/api/weather/location/default', ctrl.default)
 
+//Get Cities List
+app.get('/api/cities/:input', ctrl.getCities)
 
 //Get Searched Weather
-app.get('/api/weather/location/:search', ctrl.search)
+app.get('/api/weather/location/:city', ctrl.search)

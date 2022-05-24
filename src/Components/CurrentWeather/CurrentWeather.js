@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './CurrentWeather.css'
 import { RotatingLines } from 'react-loader-spinner'
+import WeatherIcon from '../WeatherIcon/WeatherIcon'
 
 function CurrentWeather(props) {
 
@@ -28,10 +29,15 @@ function CurrentWeather(props) {
                 <div>
                   <h2>{weatherData.location.city}{', '}{weatherData.location.region}</h2>
                   <h3>{weatherData.location.country}</h3>
-                  <h4>{weatherData.current_observation.condition.temperature}°</h4>
                   <h4>{weatherData.current_observation.condition.text}</h4>
+                  <div className="current-weather-temp">
+                    <img src={'icons/thermometer-fahrenheit.svg'} alt='temp' />
+                    <h2>{weatherData.current_observation.condition.temperature}°</h2>
+                  </div>
                 </div>
-                <img src="icons/clear-day.svg" alt="" className="weather-icon" />
+                <div className="current-weather-icon">
+                  <WeatherIcon code={weatherData.current_observation.condition.code} />
+                </div>
               </div> 
             }
         </div>
