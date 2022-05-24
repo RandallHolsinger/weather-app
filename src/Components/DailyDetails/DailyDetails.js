@@ -1,31 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './DailyDetails.css'
-import { RotatingLines } from 'react-loader-spinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWind, faDroplet, faSun, faArrowUp, faArrowDown, faArrowsLeftRightToLine } from '@fortawesome/free-solid-svg-icons'
 
 function DailyDetails(props) {
 
-    const [isLoading, setLoading] = useState(true)
-
-    const checkProps = (props) => {
-        if(props) {
-            setLoading(false)
-        }
-    }
-
-    useEffect(() => {
-        checkProps(props)
-    }, [props])
     
     const {weatherData} = props
+    
     return(
         <div className="DailyDetails">
-            {isLoading ? 
-            <div className="loader-container">
-                <RotatingLines width="100" strokeColor="#fff"/>
-            </div>
-            :
             <div className="daily-details-container">
               <h3>Daily Details</h3>
               <ul>
@@ -51,7 +35,6 @@ function DailyDetails(props) {
                   </li>
               </ul>
             </div>
-            }
         </div>
     )
 }

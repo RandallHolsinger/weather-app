@@ -7,6 +7,7 @@ import { faGear, faLocationArrow, faMagnifyingGlass, faX } from '@fortawesome/fr
 import CurrentWeather from './Components/CurrentWeather/CurrentWeather'
 import FiveDay from './Components/FiveDay/FiveDay';
 import DailyDetails from './Components/DailyDetails/DailyDetails';
+import News from './Components/News/News'
 
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
   const weatherSearch = (city) => {
     axios.get(`/api/weather/location/${city}`).then(res => {
       setWeather(res.data)
+      console.log(res.data)
     })
   }
 
@@ -70,9 +72,9 @@ function App() {
     getCurrentLocation()
   },[])
   
-  const mappedCitiesList = cityList.map((city, index) => {
+  const mappedCitiesList = cityList.map((city) => {
     return(
-      <div index={city.id} onClick={() => (weatherSearch(city.name), setToggleSearch(false), setCityList([]))} className="city-list">
+      <div key={city.id} onClick={() => (weatherSearch(city.name), setToggleSearch(false), setCityList([]))} className="city-list">
         <div>
           <span>{city.name}</span>
           <span>( {city.country.id} )</span>
@@ -131,6 +133,7 @@ function App() {
               </div>
               <FiveDay weatherData={currentWeather}/>
               <DailyDetails weatherData={currentWeather}/>
+              <News />
             </div>
           } 
     </div>

@@ -80,5 +80,24 @@ module.exports = {
         } catch(err) {
             console.log({errorMessage: `${err}`})
         }
+    },
+
+    news: async (req, res) => {
+        try {
+            await axios({
+                method: 'GET',
+                url: 'https://free-news.p.rapidapi.com/v1/search',
+                params: {q: 'World News', lang: 'en'},
+                headers: {
+                  'X-RapidAPI-Host': 'free-news.p.rapidapi.com',
+                  'X-RapidAPI-Key': `${WEATHER_API_KEY}`
+                }
+            })
+            .then(response => {
+                res.send(response.data)
+            })
+        } catch(err) {
+            console.log({errorMessage: `${err}`})
+        }
     }
 }

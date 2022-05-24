@@ -21,3 +21,6 @@ app.get('/api/cities/:input', ctrl.getCities)
 
 //Get Searched Weather
 app.get('/api/weather/location/:city', ctrl.search)
+
+//Get News
+app.get('/api/news/world', ctrl.news)
