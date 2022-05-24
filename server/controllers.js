@@ -5,7 +5,6 @@ module.exports = {
 
     weather: async (req, res) => {
         const {lat, lon} = req.params
-        console.log('hitting backend!!!', lat, lon)
         try {
             await axios({
                 method: 'GET',
@@ -49,7 +48,7 @@ module.exports = {
             await axios({
                 method: 'GET',
                 url: 'https://spott.p.rapidapi.com/places',
-                params: {type: 'CITY', skip: '0', limit: '10', q: `${input}`},
+                params: {type: 'CITY', skip: '0', limit: '5', q: `${input}`},
                 headers: {
                   'X-RapidAPI-Host': 'spott.p.rapidapi.com',
                   'X-RapidAPI-Key': `${WEATHER_API_KEY}`

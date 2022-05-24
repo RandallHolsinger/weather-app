@@ -25,8 +25,8 @@ function App() {
           const {latitude, longitude} = position.coords
           getCurrentWeather(latitude, longitude)
         }
-        const handleError = error => {
-          console.log({message: error}) 
+        const handleError = err => {
+          console.log({errorMessage: `${err}`}) 
         }
         navigator.geolocation.getCurrentPosition(handleSuccess, handleError)
     }
@@ -51,6 +51,7 @@ function App() {
   const getCitiesList = (input) => {
     axios.get(`/api/cities/${input}`).then(res => {
       setCityList(res.data)
+      console.log('city list', res.data)
     })
   }
 
@@ -74,12 +75,15 @@ function App() {
     getCurrentLocation()
   },[])
   
-  const mappedCitiesList = cityList.map((city) => {
+  const mappedCitiesList = cityList.map((city, index) => {
     return(
-      <option 
-        key={city.id} 
-        value={city.name} 
-      />
+      <div index={city.id} onClick={() => (weatherSearch(city.name), setToggleSearch(false), setCityList([]))} className="city-list">
+        <div>
+          <span>{city.name}</span>
+          <span>( {city.country.id} )</span>
+        </div>
+        <span>{city.adminDivision1.name}</span>
+      </div>
     )
   })
   
@@ -98,7 +102,7 @@ function App() {
                     <li><FontAwesomeIcon icon={faGear}/></li>
                       <li>
                         <span><FontAwesomeIcon icon={faLocationArrow}/></span>
-                        {' '}{currentWeather.location.city},{currentWeather.location.region}{' '}
+                        <span>{currentWeather.location.city},{currentWeather.location.region}</span>
                         <span><FontAwesomeIcon icon={faMagnifyingGlass} onClick={() => setToggleSearch(!toggleSearch)} /></span>
                       </li>
                     <li>News</li>
@@ -114,12 +118,16 @@ function App() {
                     placeholder='City, State, Country, Region' 
                     autoComplete='off' 
                     onChange={(e) => (handleCitiesSearch(e.target.value))}
-                    onKeyDown={(e) => e.key === 'Enter' ? (weatherSearch(e.target.value)) : null}
+                    onKeyDown={(e) => e.key === 'Enter' ? (weatherSearch(e.target.value), setToggleSearch(false)) : null}
                   />
-                  <datalist id="cities">
-                    {mappedCitiesList}
-                  </datalist>
                   
+                </div>
+                :
+                null
+                }
+                {toggleSearch ?
+                <div className='city-list-container'>
+                  {mappedCitiesList}
                 </div>
                 :
                 null
