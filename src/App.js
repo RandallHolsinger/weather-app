@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import './App.css';
-import { Circles } from 'react-loader-spinner';
+import { Circles, RotatingLines } from 'react-loader-spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGear, faLocationArrow, faMagnifyingGlass, faX } from '@fortawesome/free-solid-svg-icons'
 import CurrentWeather from './Components/CurrentWeather/CurrentWeather'
@@ -14,6 +14,7 @@ function App() {
   
   const [currentWeather, setWeather] = useState([])
   const [isLoading, setLoading] = useState(true)
+  const [isLoadingCities, setLoadingCities] = useState(false)
   const [cityList, setCityList] = useState([])
   const [toggleSearch, setToggleSearch] = useState(false)
   
@@ -50,14 +51,17 @@ function App() {
   const getCitiesList = (input) => {
     axios.get(`/api/cities/${input}`).then(res => {
       setCityList(res.data)
+      setLoadingCities(false)
+      console.log("Here is the City data", res.data)
     })
   }
 
   const handleCitiesSearch = (input) => {
     if(input.length > 2) {
-      getCitiesList(input)   
-    } else {
-      return null
+      setLoadingCities(true)
+      getCitiesList(input)
+    } else if(input.length == 0){
+      setLoadingCities(false)
     }
   }
   
@@ -72,14 +76,14 @@ function App() {
     getCurrentLocation()
   },[])
   
-  const mappedCitiesList = cityList.map((city) => {
+  const mappedCitiesList = cityList.map((city, index) => {
     return(
-      <div key={city.id} onClick={() => (weatherSearch(city.name), setToggleSearch(false), setCityList([]))} className="city-list">
+      <div key={index} onClick={() => (weatherSearch(city.name), setToggleSearch(false), setCityList([]))} className="city-list">
         <div>
           <span>{city.name}</span>
           <span>( {city.country.id} )</span>
         </div>
-        <span>{city.adminDivision1.name}</span>
+        {city.adminDivision1 ? <span>{city.adminDivision1.name}</span> : null}
       </div>
     )
   })
@@ -113,21 +117,27 @@ function App() {
                     type="text" 
                     list='cities' 
                     placeholder='City, State, Country, Region' 
-                    autoComplete='off' 
                     onChange={(e) => (handleCitiesSearch(e.target.value))}
                     onKeyDown={(e) => e.key === 'Enter' ? (weatherSearch(e.target.value), setToggleSearch(false)) : null}
                   />
-                  
                 </div>
                 :
                 null
                 }
                 {toggleSearch ?
-                <div className='city-list-container'>
-                  {mappedCitiesList}
-                </div>
-                :
-                null
+                  <div className='city-list-container'>
+                    {isLoadingCities ?
+                      <div className="loading-cities-container">
+                        <RotatingLines />
+                      </div>
+                    :
+                      <>
+                        {mappedCitiesList}
+                      </>
+                    } 
+                  </div>
+                  :
+                  null
                 }
                 <CurrentWeather weatherData={currentWeather}/>
               </div>

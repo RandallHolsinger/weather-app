@@ -88,6 +88,13 @@ body {
 /* /////////////////////////////////// */
 
 /*//// Cities List Drop Down ////*/
+.loading-cities-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
 .search-loading-container {
     display: flex;
     justify-content: center;

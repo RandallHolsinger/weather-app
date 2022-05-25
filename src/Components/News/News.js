@@ -34,9 +34,9 @@ function News() {
                  :
                  <div className="news-data">
                      {
-                       news[0].articles.slice(0, 5).map((story) => {
+                       news[0].articles.slice(0, 5).map((story, index) => {
                            return(
-                               <div key={story._id} className='story-container'>
+                               <div key={index} className='story-container'>
                                    <img src={story.media} alt='story'/>
                                    <div className="news-content">
  
