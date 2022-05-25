@@ -52,7 +52,6 @@ function App() {
     axios.get(`/api/cities/${input}`).then(res => {
       setCityList(res.data)
       setLoadingCities(false)
-      console.log("Here is the City data", res.data)
     })
   }
 
@@ -68,7 +67,6 @@ function App() {
   const weatherSearch = (city) => {
     axios.get(`/api/weather/location/${city}`).then(res => {
       setWeather(res.data)
-      console.log(res.data)
     })
   }
 

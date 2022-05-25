@@ -5,6 +5,7 @@ import './FiveDay.css'
 function FiveDay(props) {
       
     const {weatherData} = props
+    console.log('hello weather data', weatherData)
     return (
         <div className='FiveDay'>
           <div className='five-day-container'>
@@ -13,8 +14,8 @@ function FiveDay(props) {
               {
                 Object.entries(weatherData.forecasts).slice(0, 5).map(([index, forecast]) => {
                   return(
-                    <FadeIn transitionDuration={1200}>
-                      <li key={index}>
+                    <FadeIn transitionDuration={1200} key={index}>
+                      <li>
                           <h5>{forecast.day}</h5>
                           <WeatherIcon code={forecast.code} />
                           <div className="five-day-high">{forecast.high}°</div>
