@@ -126,7 +126,7 @@ function WeatherIcon(props) {
                setIcon('icons/thunderstorms.svg')
                break;
             case 39:
-               setIcon('icons/thunderstorms.svg')
+               setIcon('icons/rain.svg')
                break;
             case 40:
                setIcon('icons/thunderstorms.svg')

@@ -16,18 +16,18 @@ body {
 /*///// Navbar /////*/
 .app-container nav {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     position: sticky;
     z-index: 100;
     top: 0;
     background: linear-gradient(180deg, #5d7fd0  , #0748b0, #14446c);
-    box-shadow: 0px 0px 2px 2px black;
+    box-shadow: 0px 0px 2px 2px #000;
 }
 
 .app-container nav ul {
     display: flex;
+    width: 100%;
     justify-content: space-between;
+    align-items: center;
     list-style-type: none;
     padding: 15px;
 }
@@ -37,13 +37,18 @@ body {
     font-size: 1.1em;
 }
 
-.app-container nav ul li:nth-child(2) span {
-    margin-right: 10px;
+.app-container nav ul li:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.app-container nav ul li:nth-child(2) span:nth-child(2) {
-    margin-left: 5px;
+.location-info {
+    margin: 0px 10px 0px 10px;
+    width: 130px;
+    padding: 3px;
 }
+
 /* ////////////////////////////// */
 
 /*///// Search Box /////*/
@@ -92,7 +97,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
 }
 
 .search-loading-container {
@@ -113,20 +120,20 @@ body {
     transform: translate(-50%, 0);
     z-index: 100;
     background-color: #363636;
-    border-left: 1px solid #fff;
-    border-right: 1px solid #fff;
     border-radius: 0px 0px 10px 10px;
+    box-shadow: 3px 3px 3px #000;
 }
 
 .city-list {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-    border-bottom: 1px solid #fff;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border: .5px solid #fff;
     color: #fff;
     padding: 15px;
-    font-size: 1.2em;
+    font-size: 0.9em;
+    font-weight: 500;
 }
 
 .city-list:last-child {
@@ -136,12 +143,15 @@ body {
 .city-list:hover {
     cursor: pointer;
     background: linear-gradient(180deg, #5d7fd0 , #0748b0, #14446c);
-    /* background-color: #0748b0; */
     transition: .5s;
 }
 
-.city-list div span:nth-child(2) {
-    margin-left: 10px;
+.city-list span:nth-child(1) {
+    margin-right: 10px;
+}
+
+.city-list span:nth-child(2) {
+    margin-right: 5px;
 }
 /* ///////////////////////////////////// */
 
@@ -151,8 +161,8 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 70vh;
-    box-shadow: 0px 0px 40px 20px #000, 0px 0px 10px 5px inset #000 ;
+    height: 60vh;
+    box-shadow: 0px 0px 80px 100px #000, 0px 0px 10px 5px inset #000 ;
 }
 /* ////////////////////////////// */
 

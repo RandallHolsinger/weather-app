@@ -5,7 +5,7 @@ import './FiveDay.css'
 function FiveDay(props) {
       
     const {weatherData} = props
-    console.log('hello weather data', weatherData)
+    
     return (
         <div className='FiveDay'>
           <div className='five-day-container'>

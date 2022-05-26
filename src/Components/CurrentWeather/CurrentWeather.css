@@ -1,17 +1,21 @@
 .CurrentWeather {
- 
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 .current-weather-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 20px 10px 0px 10px;
     border: 1px solid #fff;
     border-radius: 10px;
+    width: 80%;
     height: auto;
     color: #fff;
     padding: 10px;
-    box-shadow: 3px 3px 3px black;
+    box-shadow: 3px 3px 3px #000;
     background: linear-gradient(135deg, #5d7fd0  , #0748b0, #14446c);
 }
 

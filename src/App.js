@@ -56,11 +56,25 @@ function App() {
   }
 
   const handleCitiesSearch = (input) => {
-    if(input.length > 2) {
+    if(input.length >= 2) {
       setLoadingCities(true)
       getCitiesList(input)
-    } else if(input.length == 0){
+    } 
+    if(input.length <= 2) {
+      setCityList([])
+    }
+    if(input.length === 0){
       setLoadingCities(false)
+    }
+  }
+
+  const handleOnKeyDownSearch = (e) => {
+    if(e.key === 'Enter') {
+      weatherSearch(e)
+      setToggleSearch(false)
+    } 
+    if(e.key === 'Backspace') {
+      handleCitiesSearch(e)
     }
   }
   
@@ -77,11 +91,9 @@ function App() {
   const mappedCitiesList = cityList.map((city, index) => {
     return(
       <div key={index} onClick={() => (weatherSearch(city.name), setToggleSearch(false), setCityList([]))} className="city-list">
-        <div>
-          <span>{city.name}</span>
+          <span>{city.name},</span>
+          {city.adminDivision1 ? <span>{city.adminDivision1.name}</span> : null}{' '}
           <span>( {city.country.id} )</span>
-        </div>
-        {city.adminDivision1 ? <span>{city.adminDivision1.name}</span> : null}
       </div>
     )
   })
@@ -95,13 +107,14 @@ function App() {
             </div>
             :
             <div className='app-container'>
-              <div className="image-banner">
                 <nav>
                   <ul>
                     <li><FontAwesomeIcon icon={faGear}/></li>
                       <li>
                         <span><FontAwesomeIcon icon={faLocationArrow}/></span>
-                        <span>{currentWeather.location.city},{currentWeather.location.region}</span>
+                        <marquee className='location-info' direction='left' scrollamount='2'>
+                          <span>{currentWeather.location.city},{currentWeather.location.region}</span>
+                        </marquee>
                         <span><FontAwesomeIcon icon={faMagnifyingGlass} onClick={() => setToggleSearch(!toggleSearch)} /></span>
                       </li>
                     <li>News</li>
@@ -116,27 +129,29 @@ function App() {
                     list='cities' 
                     placeholder='City, State, Country, Region' 
                     onChange={(e) => (handleCitiesSearch(e.target.value))}
-                    onKeyDown={(e) => e.key === 'Enter' ? (weatherSearch(e.target.value), setToggleSearch(false)) : null}
+                    onKeyDown={(e) => {handleOnKeyDownSearch(e.target.value)}}
                   />
+                  <div className="loading-cities-container">
+                    {isLoadingCities ? <><RotatingLines /></> : null}
+                  </div>
                 </div>
                 :
                 null
                 }
                 {toggleSearch ?
                   <div className='city-list-container'>
-                    {isLoadingCities ?
-                      <div className="loading-cities-container">
-                        <RotatingLines />
-                      </div>
-                    :
+                    {!isLoadingCities ?
                       <>
                         {mappedCitiesList}
                       </>
-                    } 
+                    :
+                      null
+                    }
                   </div>
                   :
                   null
                 }
+              <div className="image-banner">
                 <CurrentWeather weatherData={currentWeather}/>
               </div>
               <FiveDay weatherData={currentWeather}/>
