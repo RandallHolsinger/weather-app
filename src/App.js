@@ -3,7 +3,7 @@ import axios from 'axios'
 import './App.css';
 import { Circles, RotatingLines } from 'react-loader-spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGear, faLocationArrow, faMagnifyingGlass, faX } from '@fortawesome/free-solid-svg-icons'
+import { faGear, faLocationArrow, faMagnifyingGlass, faX, faNewspaper } from '@fortawesome/free-solid-svg-icons'
 import CurrentWeather from './Components/CurrentWeather/CurrentWeather'
 import FiveDay from './Components/FiveDay/FiveDay';
 import DailyDetails from './Components/DailyDetails/DailyDetails';
@@ -117,7 +117,12 @@ function App() {
                         </marquee>
                         <span><FontAwesomeIcon icon={faMagnifyingGlass} onClick={() => setToggleSearch(!toggleSearch)} /></span>
                       </li>
-                    <li>News</li>
+                    <li>
+                      <a href="#News">
+                        <span><FontAwesomeIcon icon={faNewspaper} /></span>
+                        News
+                      </a>
+                    </li>
                   </ul>
                 </nav> 
                 {toggleSearch ?

@@ -5,8 +5,13 @@
 body {
     background-color: #14446c;
 }
-.App {
 
+html {
+    scroll-behavior: smooth;
+}
+
+.App {
+  
 }
 
 .app-container {
@@ -23,7 +28,7 @@ body {
     box-shadow: 0px 0px 2px 2px #000;
 }
 
-.app-container nav ul {
+nav ul {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -32,20 +37,35 @@ body {
     padding: 15px;
 }
 
-.app-container nav ul li {
+nav ul li {
     color: #fff;
     font-size: 1.1em;
 }
 
-.app-container nav ul li:nth-child(2) {
+
+nav ul li:nth-child(2) {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+nav ul li:nth-child(3) a {
+    color: #fff;
+    text-decoration: none;
+    transition: 20s;
+}
+
+
+nav ul li:nth-child(3) span {
+    margin-right: 5px;
+}
+
+
 .location-info {
+    box-shadow: 0px 0px 10px 1px inset #000;
+    border-radius: 5px;
     margin: 0px 10px 0px 10px;
-    width: 130px;
+    width: 150px;
     padding: 3px;
 }
 
@@ -55,7 +75,6 @@ body {
 .search-container {
     display: flex;
     background-color: #363636;
-    border-bottom: 1px solid #fff;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -63,7 +82,7 @@ body {
     overflow: hidden;
     position: fixed;
     z-index: 101;
-    top: 50px;
+    top: 55px;
 }
 
 .search-container span:nth-child(1) {

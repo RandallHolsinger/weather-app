@@ -87,7 +87,7 @@ module.exports = {
             await axios({
                 method: 'GET',
                 url: 'https://free-news.p.rapidapi.com/v1/search',
-                params: {q: 'World News', lang: 'en'},
+                params: {q: 'Breaking News', lang: 'en'},
                 headers: {
                   'X-RapidAPI-Host': 'free-news.p.rapidapi.com',
                   'X-RapidAPI-Key': `${WEATHER_API_KEY}`

@@ -24,7 +24,7 @@ function News() {
 
 
     return(
-        <div className="News">
+        <div className="News" id='News'>
                <div className="news-container">
                <h3>News</h3>
                {isLoadingNews ?
@@ -34,14 +34,16 @@ function News() {
                  :
                  <div className="news-data">
                      {
-                       news[0].articles.slice(0, 5).map((story, index) => {
+                       news[0].articles.slice(0, 3).map((story, index) => {
                            return(
-                               <div key={index} className='story-container'>
-                                   <img src={story.media} alt='story'/>
-                                   <div className="news-content">
- 
-                                   </div>
-                               </div>
+                              <div key={index} className='story-container'>
+                                <div>
+                                  <h5>{story.topic.toUpperCase()}</h5>
+                                  <h5>{story.published_date.slice(0, 10)}</h5>
+                                </div>      
+                                <img src={story.media} alt='story'/>
+                                <h4>{story.title}</h4>
+                              </div>
                            )
                        })
                      }
