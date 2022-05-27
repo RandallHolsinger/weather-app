@@ -1,17 +1,20 @@
 import React, { useState, useEffect} from 'react'
 import { RotatingLines } from 'react-loader-spinner'
+import NewsModal from '../NewsModal/NewsModal'
 import axios from 'axios'
 import './News.css'
-import { faSliders } from '@fortawesome/free-solid-svg-icons'
 
 function News() {
     
     const [news, setNews] = useState([])
+    const [story, setStory] = useState({})
     const [isLoadingNews, setLoadingNews] = useState(true)
+    const [allNewsModal, setAllNewsModal] = useState(true)
+    const [storyModal, setStoryModal] = useState(false)
 
     const getNews = () => {
         axios.get('/api/news/world').then(res => {
-            setNews([...news, res.data])
+            setNews([res.data])
             setLoadingNews(false)
             console.log(res.data, typeof(news))
         })
@@ -20,7 +23,6 @@ function News() {
     useEffect(() => {
         getNews()
     }, [])
-
 
 
     return(
@@ -36,7 +38,7 @@ function News() {
                      {
                        news[0].articles.slice(0, 3).map((story, index) => {
                            return(
-                              <div key={index} className='story-container'>
+                              <div key={index} onClick={() => (setStory(story[index]))} className='story-container'>
                                 <div>
                                   <h5>{story.topic.toUpperCase()}</h5>
                                   <h5>{story.published_date.slice(0, 10)}</h5>
@@ -47,6 +49,9 @@ function News() {
                            )
                        })
                      }
+                     <button onClick={() => setAllNewsModal(true)}>More</button>
+                     {allNewsModal ? <NewsModal News={news} /> : null}
+                     {storyModal ? <NewsModal story={story} /> : null}
                   </div>
                 }
               </div>

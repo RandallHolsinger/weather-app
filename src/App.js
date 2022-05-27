@@ -118,7 +118,7 @@ function App() {
                         <span><FontAwesomeIcon icon={faMagnifyingGlass} onClick={() => setToggleSearch(!toggleSearch)} /></span>
                       </li>
                     <li>
-                      <a href="#News">
+                      <a href="//#News">
                         <span><FontAwesomeIcon icon={faNewspaper} /></span>
                         News
                       </a>
