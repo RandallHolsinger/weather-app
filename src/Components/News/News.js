@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react'
 import { RotatingLines } from 'react-loader-spinner'
-import NewsModal from '../NewsModal/NewsModal'
+
 import axios from 'axios'
 import './News.css'
 
@@ -12,7 +12,7 @@ function News() {
     const [allNewsModal, setAllNewsModal] = useState(true)
     const [storyModal, setStoryModal] = useState(false)
 
-    const getNews = () => {
+    const getAllNews = () => {
         axios.get('/api/news/world').then(res => {
             setNews([res.data])
             setLoadingNews(false)
@@ -21,7 +21,7 @@ function News() {
     }
 
     useEffect(() => {
-        getNews()
+        getAllNews()
     }, [])
 
 
@@ -38,7 +38,7 @@ function News() {
                      {
                        news[0].articles.slice(0, 3).map((story, index) => {
                            return(
-                              <div key={index} onClick={() => (setStory(story[index]))} className='story-container'>
+                              <div key={index} onClick={() => ((setStory(story[index]), setStoryModal(true)))} className='story-container'>
                                 <div>
                                   <h5>{story.topic.toUpperCase()}</h5>
                                   <h5>{story.published_date.slice(0, 10)}</h5>
@@ -50,8 +50,8 @@ function News() {
                        })
                      }
                      <button onClick={() => setAllNewsModal(true)}>More</button>
-                     {allNewsModal ? <NewsModal News={news} /> : null}
-                     {storyModal ? <NewsModal story={story} /> : null}
+                     {allNewsModal ? <AllNewsModal News={news} /> : null}
+                     {storyModal ? <StoryModal story={story} /> : null}
                   </div>
                 }
               </div>
