@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import { RotatingLines } from 'react-loader-spinner'
-
+import AllNewsModal from '../AllNewsModal/AllNewsModal'
+import StoryModal from '../StoryModal/StoryModal'
 import axios from 'axios'
 import './News.css'
 
@@ -9,7 +10,7 @@ function News() {
     const [news, setNews] = useState([])
     const [story, setStory] = useState({})
     const [isLoadingNews, setLoadingNews] = useState(true)
-    const [allNewsModal, setAllNewsModal] = useState(true)
+    const [allNewsModal, setAllNewsModal] = useState(false)
     const [storyModal, setStoryModal] = useState(false)
 
     const getAllNews = () => {
@@ -38,7 +39,7 @@ function News() {
                      {
                        news[0].articles.slice(0, 3).map((story, index) => {
                            return(
-                              <div key={index} onClick={() => ((setStory(story[index]), setStoryModal(true)))} className='story-container'>
+                              <div key={index} onClick={() => ((() => setStory(story[index]), setStoryModal(true)))} className='story-container'>
                                 <div>
                                   <h5>{story.topic.toUpperCase()}</h5>
                                   <h5>{story.published_date.slice(0, 10)}</h5>
@@ -49,9 +50,9 @@ function News() {
                            )
                        })
                      }
-                     <button onClick={() => setAllNewsModal(true)}>More</button>
+                     <button onClick={() => setAllNewsModal(true)}>See More</button>
                      {allNewsModal ? <AllNewsModal News={news} /> : null}
-                     {storyModal ? <StoryModal story={story} /> : null}
+                     {storyModal ? <StoryModal article={story} /> : null}
                   </div>
                 }
               </div>
