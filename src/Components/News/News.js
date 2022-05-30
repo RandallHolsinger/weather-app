@@ -1,35 +1,38 @@
 import React, { useState, useEffect} from 'react'
 import { RotatingLines } from 'react-loader-spinner'
 import AllNewsModal from '../AllNewsModal/AllNewsModal'
-import StoryModal from '../StoryModal/StoryModal'
+import StoryModal from '../ArticleModal/ArticleModal'
 import axios from 'axios'
 import './News.css'
 
 function News() {
     
     const [news, setNews] = useState([])
-    const [story, setStory] = useState({})
+    const [article, setArticle] = useState({})
     const [isLoadingNews, setLoadingNews] = useState(true)
-    const [allNewsModal, setAllNewsModal] = useState(false)
-    const [storyModal, setStoryModal] = useState(false)
+    const [articleModal, setArticleModal] = useState(false)
 
     const getAllNews = () => {
-        axios.get('/api/news/world').then(res => {
+        axios.get('/api/news/').then(res => {
             setNews([res.data])
+            console.log('new news api!!!', res.data)
             setLoadingNews(false)
-            // console.log(res.data, typeof(news))
         })
+    } 
+
+    const handleClickArticle = (value) => {
+      setArticle(value)
+      setArticleModal(true)
     }
 
     useEffect(() => {
         getAllNews()
     }, [])
 
-
     return(
         <div className="News" id='News'>
                <div className="news-container">
-               <h3>News</h3>
+               <div className='container-header'><h3>News</h3></div>
                {isLoadingNews ?
                  <div className="news-loading-container">
                      <RotatingLines color='#fff' height='150' width='150'/>
@@ -37,22 +40,20 @@ function News() {
                  :
                  <div className="news-data">
                      {
-                       news[0].articles.slice(0, 3).map((story, index) => {
+                       news[0].articles.slice(0, 3).map((article, index) => {
                            return(
-                              <div key={index} onClick={() => (setStory(story => story[index]), setStoryModal(true), console.log('updated state', story))} className='story-container'>
-                                <div>
-                                  <h5>{story.topic.toUpperCase()}</h5>
-                                  <h5>{story.published_date.slice(0, 10)}</h5>
-                                </div>      
-                                <img src={story.media} alt='story'/>
-                                <h4>{story.title}</h4>
-                              </div>
-                           )
+                             <div key={index} onClick={() => handleClickArticle(article)} className='article-container'>
+                               <div>
+                                 <h5>{article.source.name}</h5>
+                                 <h5>{article.publishedAt.slice(0, 10)}</h5>
+                               </div>      
+                               {article.urlToImage ? <img src={article.urlToImage} alt='article'/> : <img src={'images/alternate-news-image.jpg'} alt='article'/> }
+                               <h4>{article.title}</h4>
+                             </div>
+                          )
                        })
                      }
-                     <button onClick={() => setAllNewsModal(true)}>See More</button>
-                     {allNewsModal ?  <AllNewsModal news={news} /> : null}
-                     {storyModal ? ((console.log('hitting component story', story), <StoryModal story={story} />)) : null}
+                     {articleModal ? ((console.log('hitting component article', article), <StoryModal article={article} setArticleModalParent={setArticleModal}/>)) : null}
                   </div>
                 }
               </div>

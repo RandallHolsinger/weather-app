@@ -28,17 +28,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "plugin:flowtype/recommended",
-      "react-app",
-      "react-app/jest"
-    ],
-    "plugins": [
-      "flowtype",
-      "Prettier"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",

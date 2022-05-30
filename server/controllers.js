@@ -1,5 +1,5 @@
 const axios = require('axios')
-const {WEATHER_API_KEY} = process.env
+const {WEATHER_API_KEY, NEWS_API_KEY} = process.env
 
 module.exports = {
 
@@ -84,15 +84,7 @@ module.exports = {
 
     news: async (req, res) => {
         try {
-            await axios({
-                method: 'GET',
-                url: 'https://free-news.p.rapidapi.com/v1/search',
-                params: {q: 'Breaking News', lang: 'en'},
-                headers: {
-                  'X-RapidAPI-Host': 'free-news.p.rapidapi.com',
-                  'X-RapidAPI-Key': `${WEATHER_API_KEY}`
-                }
-            })
+            await axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${NEWS_API_KEY}`)
             .then(response => {
                 res.send(response.data)
             })
@@ -100,4 +92,5 @@ module.exports = {
             console.log({errorMessage: `${err}`})
         }
     }
+
 }
