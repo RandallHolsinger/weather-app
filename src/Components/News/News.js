@@ -17,7 +17,7 @@ function News() {
         axios.get('/api/news/world').then(res => {
             setNews([res.data])
             setLoadingNews(false)
-            console.log(res.data, typeof(news))
+            // console.log(res.data, typeof(news))
         })
     }
 
@@ -39,7 +39,7 @@ function News() {
                      {
                        news[0].articles.slice(0, 3).map((story, index) => {
                            return(
-                              <div key={index} onClick={() => ((() => setStory(story[index]), setStoryModal(true)))} className='story-container'>
+                              <div key={index} onClick={() => (setStory(story => story[index]), setStoryModal(true), console.log('updated state', story))} className='story-container'>
                                 <div>
                                   <h5>{story.topic.toUpperCase()}</h5>
                                   <h5>{story.published_date.slice(0, 10)}</h5>
@@ -51,8 +51,8 @@ function News() {
                        })
                      }
                      <button onClick={() => setAllNewsModal(true)}>See More</button>
-                     {allNewsModal ? <AllNewsModal News={news} /> : null}
-                     {storyModal ? <StoryModal article={story} /> : null}
+                     {allNewsModal ?  <AllNewsModal news={news} /> : null}
+                     {storyModal ? ((console.log('hitting component story', story), <StoryModal story={story} />)) : null}
                   </div>
                 }
               </div>
