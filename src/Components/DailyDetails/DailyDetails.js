@@ -5,7 +5,6 @@ import { faWind, faDroplet, faSun, faArrowUp, faArrowDown, faArrowsLeftRightToLi
 
 function DailyDetails(props) {
 
-    
     const {weatherData} = props
     
     return(

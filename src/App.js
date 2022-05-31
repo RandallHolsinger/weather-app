@@ -81,6 +81,7 @@ function App() {
   const weatherSearch = (city) => {
     axios.get(`/api/weather/location/${city}`).then(res => {
       setWeather(res.data)
+      console.log('weather data', res.data)
     })
   }
 

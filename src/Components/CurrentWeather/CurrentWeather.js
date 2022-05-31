@@ -32,7 +32,7 @@ function CurrentWeather(props) {
                   <h4>{weatherData.current_observation.condition.text}</h4>
                   <div className="current-weather-temp">
                     <h2>{weatherData.current_observation.condition.temperature}°</h2>
-                    <img src={'icons/thermometer-fahrenheit.svg'} alt='temp' />
+                    <span><img src={'icons/thermometer-fahrenheit.svg'} alt='temp' /></span>
                   </div>
                 </div>
                 <div className="current-weather-icon">

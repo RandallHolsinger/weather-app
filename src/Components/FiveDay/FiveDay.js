@@ -18,8 +18,8 @@ function FiveDay(props) {
                       <li>
                           <h5>{forecast.day}</h5>
                           <WeatherIcon code={forecast.code} />
-                          <div className="five-day-high">{forecast.high}°</div>
-                          <div className="five-day-low">{forecast.low}°</div>
+                          <span className="five-day-high">{forecast.high}°</span>
+                          <span className="five-day-low">{forecast.low}°</span>
                       </li>
                     </FadeIn>
                   )

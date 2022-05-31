@@ -2,3 +2,25 @@
     width: 100%;
     height: auto;
 }
+
+/*////// Media Queries //////*/
+
+/* Mobile */
+@media only screen and (min-width: 769) {
+
+}
+
+/* Tablet */
+@media(max-width: 1024px) and (min-width: 769px) {
+  
+}
+
+/* laptop */
+@media(max-width: 1366px) and (min-width: 1024px) {
+
+}
+
+/* Desktop */
+@media(min-width: 1366px) {
+
+}

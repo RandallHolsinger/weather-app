@@ -18,6 +18,7 @@ html {
 
 }
 
+
 /*///// Navbar /////*/
 .app-container nav {
     display: flex;
@@ -47,12 +48,13 @@ nav ul li:nth-child(2) {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 10px;
 }
 
 nav ul li:nth-child(3) a {
     color: #fff;
     text-decoration: none;
-    transition: 20s;
+    font-size: 15px;
 }
 
 
@@ -134,8 +136,8 @@ nav ul li:nth-child(3) span {
 .city-list-container {
     position: fixed;
     top: 100px;
-    width: 350px;
     left: 50%;
+    width: 350px;
     transform: translate(-50%, 0);
     z-index: 100;
     background-color: #363636;
@@ -180,7 +182,7 @@ nav ul li:nth-child(3) span {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 60vh;
+    height: 70vh;
     box-shadow: 0px 0px 80px 100px #000, 0px 0px 10px 5px inset #000 ;
 }
 /* ////////////////////////////// */
@@ -216,6 +218,30 @@ nav ul li:nth-child(3) span {
 .main-loader-container svg {
     padding: 20px; 
 }
+
+
+/*////// Media Queries //////*/
+
+/* Mobile */
+@media only screen and (min-width: 769) {
+
+}
+
+/* Tablet */
+@media(max-width: 1024px) and (min-width: 769px) {
+  
+}
+
+/* laptop */
+@media(max-width: 1366px) and (min-width: 1024px) {
+
+}
+
+/* Desktop */
+@media(min-width: 1366px) {
+
+}
+
 
 
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from 'react'
 import { RotatingLines } from 'react-loader-spinner'
-import AllNewsModal from '../AllNewsModal/AllNewsModal'
 import StoryModal from '../ArticleModal/ArticleModal'
 import axios from 'axios'
 import './News.css'
@@ -47,7 +46,14 @@ function News() {
                                  <h5>{article.source.name}</h5>
                                  <h5>{article.publishedAt.slice(0, 10)}</h5>
                                </div>      
-                               {article.urlToImage ? <img src={article.urlToImage} alt='article'/> : <img src={'images/alternate-news-image.jpg'} alt='article'/> }
+                               {article.urlToImage ? 
+                                 <img src={article.urlToImage} alt='article'/> 
+                               : 
+                                 <div className='alternate-container'>
+                                   <img src={'images/alternate-news-image.jpg'} alt='article'/>
+                                   <span className='image-footer'><a href="http://www.freepik.com"><p>Image designed by starline / freepik</p></a></span>
+                                 </div>
+                               }
                                <h4>{article.title}</h4>
                              </div>
                           )
