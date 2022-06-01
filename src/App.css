@@ -11,7 +11,7 @@ html {
 }
 
 .App {
-  
+
 }
 
 .app-container {
@@ -62,8 +62,14 @@ nav ul li:nth-child(3) span {
     margin-right: 5px;
 }
 
-
 .location-info {
+  margin: 0px 20px 0px 20px;
+  box-shadow: 0px 0px 10px 1px inset #000;
+  border-radius: 5px;
+  padding: 5px 20px 5px 20px;
+}
+
+.location-info-mobile {
     box-shadow: 0px 0px 10px 1px inset #000;
     border-radius: 5px;
     margin: 0px 10px 0px 10px;
@@ -77,6 +83,7 @@ nav ul li:nth-child(3) span {
 .search-container {
     display: flex;
     background-color: #363636;
+    border-bottom: 1px solid #fff;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -135,9 +142,9 @@ nav ul li:nth-child(3) span {
 
 .city-list-container {
     position: fixed;
-    top: 100px;
+    top: 105px;
     left: 50%;
-    width: 350px;
+    width: 100%;
     transform: translate(-50%, 0);
     z-index: 100;
     background-color: #363636;
@@ -155,6 +162,9 @@ nav ul li:nth-child(3) span {
     padding: 15px;
     font-size: 0.9em;
     font-weight: 500;
+}
+.city-list:first-child {
+    border-top: none ;
 }
 
 .city-list:last-child {
@@ -182,7 +192,7 @@ nav ul li:nth-child(3) span {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 70vh;
+    height: 60vh;
     box-shadow: 0px 0px 80px 100px #000, 0px 0px 10px 5px inset #000 ;
 }
 /* ////////////////////////////// */
@@ -223,23 +233,63 @@ nav ul li:nth-child(3) span {
 /*////// Media Queries //////*/
 
 /* Mobile */
-@media only screen and (min-width: 769) {
+@media screen and (max-width: 767px) {
+    .location-info {
+        display: none;
+    }
+    .location-info-mobile {
+        display: block;
+    }
 
 }
 
 /* Tablet */
-@media(max-width: 1024px) and (min-width: 769px) {
+@media(max-width: 1024px) and (min-width: 768px) {
+  .App {
+
+  }
+  .app-container {
+
+  }
+  .app-container nav {
+      font-size: 1.5em;
+  }
+  .app-container nav ul li:nth-child(2) {
+      width: 70%;
+  }
+  .location-info-mobile {
+      display: none;
+  }
+  .app-container nav ul li a {
+      font-size: 1.0em;
+  }
+  .search-container {
+      border-left: 1px solid #fff;
+      border-right: 1px solid #fff;
+      width: 70%;
+      top: 70px;
+      left: 50%;
+      transform: translate(-50%, 0);
+  }
+  .city-list-container {
+      width: 72%;
+      top: 120px;
+  }
   
 }
 
 /* laptop */
 @media(max-width: 1366px) and (min-width: 1024px) {
-
+  .location-info-mobile {
+      display: none;
+  }
 }
 
 /* Desktop */
 @media(min-width: 1366px) {
-
+  .location-info-mobile {
+      display: none;
+  }
 }
 
 

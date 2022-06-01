@@ -113,9 +113,10 @@ function App() {
                     <li><FontAwesomeIcon icon={faGear}/></li>
                       <li>
                         <span><FontAwesomeIcon icon={faLocationArrow}/></span>
-                        <marquee className='location-info' direction='left' scrollamount='2'>
+                        <marquee className='location-info-mobile' direction='left' scrollamount='2'>
                           <span>{currentWeather.location.city},{currentWeather.location.region}</span>
                         </marquee>
+                          <span className='location-info'>{currentWeather.location.city},{currentWeather.location.region}</span>
                         <span><FontAwesomeIcon icon={faMagnifyingGlass} onClick={() => setToggleSearch(!toggleSearch)} /></span>
                       </li>
                     <li>

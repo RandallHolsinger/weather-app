@@ -29,9 +29,9 @@ function News() {
     }, [])
 
     return(
-        <div className="News" id='News'>
+        <div className="News">
                <div className="news-container">
-               <div className='container-header'><h3>News</h3></div>
+               <h3>News</h3>
                {isLoadingNews ?
                  <div className="news-loading-container">
                      <RotatingLines color='#fff' height='150' width='150'/>
@@ -43,8 +43,8 @@ function News() {
                            return(
                              <div key={index} onClick={() => handleClickArticle(article)} className='article-container'>
                                <div>
-                                 <h5>{article.source.name}</h5>
-                                 <h5>{article.publishedAt.slice(0, 10)}</h5>
+                                 <h4>{article.source.name}</h4>
+                                 <h4>{article.publishedAt.slice(0, 10)}</h4>
                                </div>      
                                {article.urlToImage ? 
                                  <img src={article.urlToImage} alt='article'/> 
