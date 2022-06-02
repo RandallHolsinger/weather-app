@@ -1,7 +1,12 @@
-import React, { useState , useEffect } from 'react'
+import React, { useState } from 'react'
+import './SearchModal.css'
+import {RotatingLines } from 'react-loader-spinner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass, faX } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
-function SearchModal() {
+function SearchModal(props) {
+  
   const [isLoadingCities, setLoadingCities] = useState(false)
   const [cityList, setCityList] = useState([])
   
@@ -10,11 +15,14 @@ function SearchModal() {
     axios.get(`/api/cities/${input}`).then(res => {
       setCityList(res.data)
       setLoadingCities(false)
+      console.log('hello cities', res.data)
     })
   }
+  
   const weatherSearch = (city) => {
+    console.log(props)
     axios.get(`/api/weather/location/${city}`).then(res => {
-      setWeather(res.data)
+      props.setWeather(res.data)
       console.log('weather data', res.data)
     })
   }
@@ -46,17 +54,18 @@ function SearchModal() {
 
   const mappedCitiesList = cityList.map((city, index) => {
     return(
-      <div key={index} onClick={() => (weatherSearch(city.name), setToggleSearch(false), setCityList([]))} className="city-list">
+      <div key={index} onClick={() => (weatherSearch(city.name), props.handleToggleSearchModal(), setCityList([]))} className="city-list">
           <span>{city.name},</span>
           {city.adminDivision1 ? <span>{city.adminDivision1.name}</span> : null}{' '}
           <span>( {city.country.id} )</span>
       </div>
     )
   })
+  
   return(
       <div className="SearchModal">
         <div className='search-container'>
-          <span><FontAwesomeIcon icon={faX} onClick={() => setToggleSearch(false)} /></span>
+          <span><FontAwesomeIcon icon={faX} onClick={() => props.handleToggleSearchModal()} /></span>
           <span><FontAwesomeIcon icon={faMagnifyingGlass} /></span>
           <input 
             type="text" 
@@ -70,7 +79,7 @@ function SearchModal() {
           </div>
         </div>
         <div className="city-list-container">
-          {!isLoadingCities ? {mappedCitiesList} : null}
+          {!isLoadingCities ? <div>{mappedCitiesList}</div> : null}
         </div>
       </div>
   )
