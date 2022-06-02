@@ -77,7 +77,6 @@
   border: .5px solid #fff;
   color: #fff;
   padding: 15px;
-  font-size: 0.8em;
   font-weight: 500;
 }
 .city-list-items:first-child {
@@ -96,6 +95,17 @@
 
 .city-list-items span:nth-child(2) {
   margin-right: 5px;
+}
+
+.recent-search-container {
+  border: 1px solid #fff;
+  height: auto;
+}
+
+.recent-search-cities {
+  padding: 20px;
+  color: #fff;
+  border: 1px solid #fff
 }
 
 /*////// Media Queries //////*/
