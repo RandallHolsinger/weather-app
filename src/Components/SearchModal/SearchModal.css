@@ -1,15 +1,31 @@
+.SearchModal {
+  position: fixed;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  width: 95%;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 50px 50px #000;
+  background: linear-gradient(135deg, #5d7fd0, #5d7fd0, #0748b0, #14446c)
+
+}
+
+.SearchModal h4 {
+  color: white;
+  background-color: #363636;
+  padding: 10px
+}
+
 .search-container {
   display: flex;
   background-color: #363636;
   border-bottom: 1px solid #fff;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding: 10px;
-  overflow: hidden;
-  position: fixed;
-  z-index: 101;
-  top: 55px;
+  padding: 15px;
 }
 
 .search-container span:nth-child(1) {
@@ -36,6 +52,14 @@
   border: 2px solid #fff;
   padding: 3px;
 }
+/*//// City Search List //// */
+ 
+.city-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
 
 .loading-cities-container {
   display: flex;
@@ -46,55 +70,48 @@
   height: 30px;
 }
 
-.city-list-container {
-  background-color: #363636;
+.city-list-items {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   justify-content: flex-start;
   border: .5px solid #fff;
   color: #fff;
   padding: 15px;
-  font-size: 0.9em;
+  font-size: 0.8em;
   font-weight: 500;
 }
-.city-list-container:first-child {
+.city-list-items:first-child {
   border-top: none ;
 }
 
-.city-list-container:last-child {
-  border-radius: 0px 0px 10px 10px;
-}
-
-.city-list-container:hover {
+.city-list-ites:hover {
   cursor: pointer;
   background: linear-gradient(180deg, #5d7fd0 , #0748b0, #14446c);
   transition: .5s;
 }
 
-.city-list-container span:nth-child(1) {
+.city-list-items span:nth-child(1) {
   margin-right: 10px;
 }
 
-.city-list span:nth-child(2) {
+.city-list-items span:nth-child(2) {
   margin-right: 5px;
 }
 
 /*////// Media Queries //////*/
 
+/* Mobile */
+@media screen and (max-width: 767px) {
+
+}
+
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
     .search-container {
-      border-left: 1px solid #fff;
-      border-right: 1px solid #fff;
-      width: 70%;
-      top: 70px;
-      left: 50%;
-      transform: translate(-50%, 0);
+  
   }
     .city-list-container {
-      width: 72%;
-      top: 120px;
+
   }
   
 }

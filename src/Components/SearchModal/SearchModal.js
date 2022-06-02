@@ -9,13 +9,13 @@ function SearchModal(props) {
   
   const [isLoadingCities, setLoadingCities] = useState(false)
   const [cityList, setCityList] = useState([])
+  const [recentSearches, setRecentSearches] = useState([])
   
   
   const getCitiesList = (input) => {
     axios.get(`/api/cities/${input}`).then(res => {
       setCityList(res.data)
       setLoadingCities(false)
-      console.log('hello cities', res.data)
     })
   }
   
@@ -23,7 +23,8 @@ function SearchModal(props) {
     console.log(props)
     axios.get(`/api/weather/location/${city}`).then(res => {
       props.setWeather(res.data)
-      console.log('weather data', res.data)
+      recentSearches.push(res.data)
+      console.log('hello data', recentSearches)
     })
   }
     
@@ -54,10 +55,20 @@ function SearchModal(props) {
 
   const mappedCitiesList = cityList.map((city, index) => {
     return(
-      <div key={index} onClick={() => (weatherSearch(city.name), props.handleToggleSearchModal(), setCityList([]))} className="city-list">
+      <div key={index} onClick={() => (weatherSearch(city.name), props.handleToggleSearchModal(), setCityList([]))} className="city-list-items">
           <span>{city.name},</span>
           {city.adminDivision1 ? <span>{city.adminDivision1.name}</span> : null}{' '}
           <span>( {city.country.id} )</span>
+      </div>
+    )
+  })
+
+  const mappedRecentSearches = recentSearches.map((recentSearch, index) => {
+    return(
+      <div key={index} className="recent-city-list-items">
+        <span>{recentSearch.name},</span>
+          {recentSearch.adminDivision1 ? <span>{recentSearch.adminDivision1.name}</span> : null}{' '}
+          <span>( {recentSearch.country.id} )</span>
       </div>
     )
   })
@@ -80,6 +91,10 @@ function SearchModal(props) {
         </div>
         <div className="city-list-container">
           {!isLoadingCities ? <div>{mappedCitiesList}</div> : null}
+        </div>
+        <h4>Recent Searches</h4>
+        <div className="recent-searches">
+           {mappedRecentSearches}
         </div>
       </div>
   )
