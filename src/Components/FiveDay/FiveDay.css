@@ -63,14 +63,15 @@
 /*////// Media Queries //////*/
 
 /* Mobile */
-@media only screen and (min-width: 769) {
+@media only screen and (max-width: 767px) {
 
 }
 
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
   .FiveDay {
-      padding: 0px 20px 0px 20px;
+      padding: 0px 10% 0px 10%;
+      margin-top: 40px;
   }
   .five-day-container {
       
@@ -90,7 +91,7 @@
 /* laptop */
 @media(max-width: 1366px) and (min-width: 1024px) {
    .FiveDay {
-      padding: 0px 50px 0px 50px;
+    padding: 0px 20% 0px 20%;
   }
   .five-day-container {
       
@@ -110,7 +111,7 @@
 /* Desktop */
 @media(min-width: 1366px) {
   .FiveDay {
-      padding: 0px 50px 0px 50px;
+      padding: 0px 20% 0px 20%;
   }
   .five-day-container {
       

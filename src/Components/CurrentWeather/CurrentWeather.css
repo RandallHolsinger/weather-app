@@ -1,7 +1,5 @@
 .CurrentWeather {
-   display: flex;
-   justify-content: center;
-   align-items: center;
+   width: 100%;
 }
 
 .current-weather-container {
@@ -11,7 +9,6 @@
     margin: 30px 10px 0px 10px;
     border: 1px solid #fff;
     border-radius: 10px;
-    width: 340px;
     height: auto;
     color: #fff;
     padding: 10px;
@@ -41,20 +38,19 @@
 /*////// Media Queries //////*/
 
 /* Mobile */
-@media only screen and (min-width: 769) {
-  .current-weather-container {
-      
+@media only screen and (max-width: 767px) {
+  .CurrentWeather {
+    padding: 0px 5% 0px 5%;
   }
 }
 
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
     .CurrentWeather {
-        padding: 30px;
+        padding: 0px 10% 0px 10%;
     }
     .current-weather-container {
-        width: 600px;
-        padding-left: 30px;
+       
     }
     .current-weather-container h2 {
         font-size: 3em;
@@ -75,11 +71,10 @@
 /* laptop */
 @media(max-width: 1366px) and (min-width: 1024px) {
     .CurrentWeather {
-        padding: 30px;
+        padding: 0px 20% 0px 20%;
     }
     .current-weather-container {
-        width: 650px;
-        padding: 30px;
+
     }
     .current-weather-container div {
         
@@ -98,11 +93,10 @@
 /* Desktop */
 @media(min-width: 1366px) {
     .CurrentWeather {
-        padding: 30px;
+        padding: 0px 20% 0px 20%;
     }
     .current-weather-container {
-        width: 800px;
-        padding: 30px;
+        
     }
     .current-weather-container div {
         

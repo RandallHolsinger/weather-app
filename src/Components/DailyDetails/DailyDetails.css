@@ -54,14 +54,14 @@
 /*////// Media Queries //////*/
 
 /* Mobile */
-@media only screen and (min-width: 769) {
+@media only screen and (max-width: 767px) {
 
 }
 
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
   .DailyDetails {
-    padding: 0px 20px 0px 20px;
+    padding: 0px 10% 0px 10%;
   }
   .daily-details-container {
 
@@ -77,7 +77,7 @@
 /* laptop */
 @media(max-width: 1366px) and (min-width: 1024px) {
   .DailyDetails {
-    padding: 0px 50px 0px 50px;
+    padding: 0px 20% 0px 20%;
   }
   .daily-details-container {
 
@@ -93,7 +93,7 @@
 /* Desktop */
 @media(min-width: 1366px) {
   .DailyDetails {
-    padding: 0px 50px 0px 50px;
+    padding: 0px 20% 0px 20%;
   }
   .daily-details-container {
 

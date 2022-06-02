@@ -22,8 +22,8 @@ function SearchModal(props) {
   const weatherSearch = (city) => {
     axios.get(`/api/weather/location/${city}`).then(res => {
       props.setWeather(res.data)
-      console.log('1111', recentSearch)
-      props.handleToggleSearchModal()
+      console.log('1111', recentSearches)
+      // props.handleToggleSearchModal()
     })
   }
     

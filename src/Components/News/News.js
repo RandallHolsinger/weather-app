@@ -39,7 +39,7 @@ function News() {
                  :
                  <div className="news-data">
                      {
-                       news[0].articles.slice(0, 3).map((article, index) => {
+                       news[0].articles.map((article, index) => {
                            return(
                              <div key={index} onClick={() => handleClickArticle(article)} className='article-container'>
                                <div>
