@@ -14,7 +14,6 @@ function News() {
     const getAllNews = () => {
         axios.get('/api/news/').then(res => {
             setNews([res.data])
-            console.log('new news api!!!', res.data)
             setLoadingNews(false)
         })
     } 
@@ -59,7 +58,7 @@ function News() {
                           )
                        })
                      }
-                     {articleModal ? ((console.log('hitting component article', article), <StoryModal article={article} setArticleModalParent={setArticleModal}/>)) : null}
+                     {articleModal ? <StoryModal article={article} setArticleModalParent={setArticleModal}/> : null}
                   </div>
                 }
               </div>
