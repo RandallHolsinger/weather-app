@@ -1,19 +1,27 @@
 .CurrentWeather {
-
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    z-index: 100;
+    position: absolute;
+    top: 10%;
 }
 
 .current-weather-container {
+    margin: 20px 10px 20px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 10px 20px 10px;
     border: 1px solid #fff;
     border-radius: 10px;
     height: auto;
     color: #fff;
-    padding: 10px;
     box-shadow: 3px 3px 3px #000;
     background: linear-gradient(135deg, #5d7fd0  , #0748b0, #14446c);
+}
+
+.current-weather-info {
+    padding: 5px
 }
 
 .current-weather-temp {
@@ -30,9 +38,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 100%;
-    margin-left: 10px;
+    width: 40%;
+    height: auto;
 }
 
 /*////// Media Queries //////*/
@@ -133,9 +140,6 @@
         padding: 0px 20% 0px 20%;
     }
     .current-weather-container {
-        
-    }
-    .current-weather-container div {
         
     }
     .current-weather-container h2  {

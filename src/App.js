@@ -4,6 +4,7 @@ import './App.css';
 import { Circles } from 'react-loader-spinner';
 import Nav from './Components/Nav/Nav';
 import CurrentWeather from './Components/CurrentWeather/CurrentWeather'
+import CityViewSlider from './Components/CityViewSlider/CityViewSlider';
 import FiveDay from './Components/FiveDay/FiveDay';
 import DailyDetails from './Components/DailyDetails/DailyDetails';
 import News from './Components/News/News'
@@ -66,8 +67,10 @@ function App() {
         <div className='app-container'>
           <Nav handleToggleSearchModal={handleToggleSearchModal} weatherData={currentWeather} />
           {toggleSearchModal ? <SearchModal handleToggleSearchModal={handleToggleSearchModal} setWeather={setWeather}/> : null}
-            <img src={'images/banner-image.jpg'} alt='banner' className='banner-image' />
-          <CurrentWeather weatherData={currentWeather}/>
+          <div className="banner">
+            <CityViewSlider />
+            <CurrentWeather weatherData={currentWeather}/>
+          </div>
           <FiveDay weatherData={currentWeather}/>
           <DailyDetails weatherData={currentWeather}/>
           <News />

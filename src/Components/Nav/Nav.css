@@ -5,7 +5,7 @@ nav {
     z-index: 100;
     top: 0;
     background: linear-gradient(180deg, #5d7fd0 , #0748b0, #14446c);
-    box-shadow: 0 0 2px 2px #000;
+    box-shadow: 0 0 3px 3px #000;
 }
 
 nav ul {
@@ -70,7 +70,7 @@ nav ul li:nth-child(3) span {
 @media(max-width: 1024px) and (min-width: 768px) {
 
     .Nav {
-        font-size: 1.5em;
+        font-size: 1.0em;
     }
     .Nav ul li:nth-child(2) {
         width: 70%;

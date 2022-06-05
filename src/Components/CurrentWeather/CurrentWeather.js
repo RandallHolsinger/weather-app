@@ -26,7 +26,7 @@ function CurrentWeather(props) {
               </div>
               :
               <div className='current-weather-container'>
-                <div>
+                <div className='current-weather-info'>
                   <h2>{weatherData.location.city}{', '}{weatherData.location.region}</h2>
                   <h3>{weatherData.location.country}</h3>
                   <h4>{weatherData.current_observation.condition.text}</h4>
