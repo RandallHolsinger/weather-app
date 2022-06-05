@@ -111,18 +111,13 @@
 /*////// Media Queries //////*/
 
 /* Mobile */
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 767px) {
 
 }
 
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
-    .search-container {
-  
-  }
-    .city-list-container {
 
-  }
   
 }
 

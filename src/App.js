@@ -67,10 +67,8 @@ function App() {
         <div className='app-container'>
           <Nav handleToggleSearchModal={handleToggleSearchModal} weatherData={currentWeather} />
           {toggleSearchModal ? <SearchModal handleToggleSearchModal={handleToggleSearchModal} setWeather={setWeather}/> : null}
-          <div className="banner">
-            <CityViewSlider />
-            <CurrentWeather weatherData={currentWeather}/>
-          </div>
+          <CityViewSlider />
+          <CurrentWeather weatherData={currentWeather}/>
           <FiveDay weatherData={currentWeather}/>
           <DailyDetails weatherData={currentWeather}/>
           <News />

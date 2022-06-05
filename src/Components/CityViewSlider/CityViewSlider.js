@@ -9,11 +9,11 @@ function CityViewSlider() {
   return(
     <div className="CityViewSlider">
       <Slider autoplay={true} autoplaySpeed={5000} speed={500}>
-        <div className="slide"><img src='images/banner-image.jpg' alt='banner'/></div>
-        <div className="slide"><img src='images/banner-image.jpg' alt='banner'/></div>
-        <div className="slide"><img src='images/banner-image.jpg' alt='banner'/></div>
-        <div className="slide"><img src='images/banner-image.jpg' alt='banner'/></div>
-        <div className="slide"><img src='images/banner-image.jpg' alt='banner'/></div>
+        <div className="slide"></div>
+        <div className="slide"></div>
+        <div className="slide"></div>
+        <div className="slide"></div>
+        <div className="slide"></div>
       </Slider>
     </div>
   )
