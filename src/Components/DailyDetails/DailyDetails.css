@@ -61,48 +61,51 @@
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
   .DailyDetails {
-    width: 40%;
+    width: 35%;
+    height: 100%;
   }
   .daily-details-container {
-
+   
   }
   .daily-details-container h3 {
-    font-size: 2em;
+    font-size: 1.5em;
   }
   .daily-details-container ul li {
-    font-size: 1.5em;
+    font-size: 1em;
   }
 }
 
 /* laptop */
 @media(max-width: 1366px) and (min-width: 1024px) {
   .DailyDetails {
-    padding: 0px 20% 0px 20%;
+    width: 35%;
+    height: 100%;
   }
   .daily-details-container {
-
+   
   }
   .daily-details-container h3 {
-    font-size: 2.5em;
+    font-size: 1.5em;
   }
   .daily-details-container ul li {
-    font-size: 2em;
+    font-size: 1em;
   }
 }
 
 /* Desktop */
 @media(min-width: 1366px) {
   .DailyDetails {
-    padding: 0px 20% 0px 20%;
+    width: 35%;
+    height: 100%;
   }
   .daily-details-container {
-
+   
   }
   .daily-details-container h3 {
-    font-size: 3.5em;
+    font-size: 1.5em;
   }
   .daily-details-container ul li {
-    font-size: 3em;
+    font-size: 1em;
   }
 }
 
