@@ -41,7 +41,7 @@ function News() {
                        news[0].articles.map((article, index) => {
                            return(
                              <div key={index} onClick={() => handleClickArticle(article)} className='article-container'>
-                               <div>
+                               <div className='article-header'>
                                  <h4>{article.source.name}</h4>
                                  <h4>{article.publishedAt.slice(0, 10)}</h4>
                                </div>      
