@@ -1,13 +1,12 @@
 .CurrentWeather {
     position: relative;
-    width: 100%;
     overflow: hidden;
     z-index: 100;
     position: absolute;
     top: 10%;
     left: 50%;
     transform: translate(-50%, -10%);
-    width: 70%;
+    width: 90%;
 }
 
 .current-weather-container {
@@ -41,8 +40,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
-    height: auto;
+    margin-right: 10px;
+    height: 100%;
+    width: 50%;
 }
 
 /*////// Media Queries //////*/
@@ -95,13 +95,13 @@
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
     .CurrentWeather {
-        width: 70%;
+        width: 50%;
     }
     .current-weather-container {
-       
+        margin: 5px 10px 20px 10px;
     }
     .current-weather-container h2 {
-        font-size: 3em;
+        font-size: 2em;
     }
     .current-weather-container h3 {
         font-size: 1.5em;
@@ -113,6 +113,9 @@
         width: 75px;
         height: 75px;
     }
+    .current-weather-icon {
+        width: 30%;
+    }
 }
 
 /* laptop */
@@ -121,38 +124,49 @@
         width: 60%;
     }
     .current-weather-container {
-
+        margin: 10px 10px 20px 10px;
     }
-    .current-weather-container div {
-        
-    }
-    .current-weather-container h2  {
-        font-size: 3em;
+    .current-weather-container h2 {
+        font-size: 2em;
     }
     .current-weather-container h3 {
-        font-size: 2.5em;
+        font-size: 1.5em;
     }
     .current-weather-container h4 {
-        font-size: 2em;
+        font-size: 1.3em;
+    }
+    .current-weather-temp img {
+        width: 75px;
+        height: 75px;
+    }
+    .current-weather-icon {
+        width: 30%;
     }
 }
 
 /* Desktop */
 @media(min-width: 1366px) {
     .CurrentWeather {
-        width: 50%;
+        width: 60%;
     }
     .current-weather-container {
-        
+        margin: 10px 10px 20px 10px;
     }
-    .current-weather-container h2  {
-        font-size: 3em;
+    .current-weather-container h2 {
+        font-size: 2em;
     }
     .current-weather-container h3 {
-        font-size: 2.5em;
+        font-size: 1.5em;
     }
     .current-weather-container h4 {
-        font-size: 2em;
+        font-size: 1.3em;
+    }
+    .current-weather-temp img {
+        width: 75px;
+        height: 75px;
+    }
+    .current-weather-icon {
+        width: 30%;
     }
 }
 

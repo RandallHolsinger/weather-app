@@ -62,10 +62,9 @@
 @media(max-width: 1024px) and (min-width: 768px) {
   .DailyDetails {
     width: 35%;
-    height: 100%;
   }
   .daily-details-container {
-   
+   height: 325px;
   }
   .daily-details-container h3 {
     font-size: 1.5em;
@@ -79,10 +78,9 @@
 @media(max-width: 1366px) and (min-width: 1024px) {
   .DailyDetails {
     width: 35%;
-    height: 100%;
   }
   .daily-details-container {
-   
+   height: 325px;
   }
   .daily-details-container h3 {
     font-size: 1.5em;
@@ -96,10 +94,9 @@
 @media(min-width: 1366px) {
   .DailyDetails {
     width: 35%;
-    height: 100%;
   }
   .daily-details-container {
-   
+   height: 325px;
   }
   .daily-details-container h3 {
     font-size: 1.5em;
