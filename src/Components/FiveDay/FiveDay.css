@@ -70,21 +70,21 @@
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
   .FiveDay {
-      padding: 0px 10% 0px 10%;
       margin-top: 40px;
+      width: 40%;
   }
   .five-day-container {
       
   }
   .five-day-container h3 {
-      font-size: 2.5em;
+      font-size: 2em;
   }
 
   .five-day-container h5 {
-      font-size: 2em;
+      font-size: 1.5em;
   } 
   .five-day-container ul li span {
-      font-size: 2em;
+      font-size: 1.5em;
   }
 }
 

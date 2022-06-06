@@ -69,8 +69,10 @@ function App() {
           {toggleSearchModal ? <SearchModal handleToggleSearchModal={handleToggleSearchModal} setWeather={setWeather}/> : null}
           <CityViewSlider />
           <CurrentWeather weatherData={currentWeather}/>
-          <FiveDay weatherData={currentWeather}/>
-          <DailyDetails weatherData={currentWeather}/>
+          <div className="desktop-view">
+            <FiveDay weatherData={currentWeather}/>
+            <DailyDetails weatherData={currentWeather}/>
+          </div>
           <News />
         </div>
       } 

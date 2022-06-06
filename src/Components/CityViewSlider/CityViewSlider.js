@@ -8,12 +8,12 @@ function CityViewSlider() {
 
   return(
     <div className="CityViewSlider">
-      <Slider autoplay={true} autoplaySpeed={5000} speed={500}>
-        <div className="slide"></div>
-        <div className="slide"></div>
-        <div className="slide"></div>
-        <div className="slide"></div>
-        <div className="slide"></div>
+      <Slider autoplay={true} autoplaySpeed={10000} speed={100}>
+        <img src={'images/banner-image-1.jpg'} alt='banner' className='slide'/>
+        <img src={'images/banner-image-2.jpg'} alt='banner' className='slide'/>
+        <img src={'images/banner-image-3.jpg'} alt='banner' className='slide'/>
+        <img src={'images/banner-image-4.jpg'} alt='banner' className='slide'/>
+        <img src={'images/banner-image-5.jpg'} alt='banner' className='slide'/>
       </Slider>
     </div>
   )

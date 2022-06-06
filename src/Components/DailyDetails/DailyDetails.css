@@ -61,16 +61,16 @@
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
   .DailyDetails {
-    padding: 0px 10% 0px 10%;
+    width: 40%;
   }
   .daily-details-container {
 
   }
   .daily-details-container h3 {
-    font-size: 2.5em;
+    font-size: 2em;
   }
   .daily-details-container ul li {
-    font-size: 2em;
+    font-size: 1.5em;
   }
 }
 
