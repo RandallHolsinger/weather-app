@@ -19,6 +19,7 @@ function App() {
   const [searchModal, setSearchModal] = useState(false)
   const [article, setArticle] = useState({})
   const [articleModal, setArticleModal] = useState(false)
+  const [weatherUnit, setWeatherUnit] = useState('f')
 
   const getCurrentLocation = () => {
     if(!navigator.geolocation) {
@@ -73,7 +74,7 @@ function App() {
         </div>
         :
         <div className='app-container'>
-          <Nav handleSearchModal={handleSearchModal} weatherData={currentWeather} />
+          <Nav handleSearchModal={handleSearchModal} weatherData={currentWeather} weatherUnit={weatherUnit} setWeatherUnit={setWeatherUnit} />
           {searchModal ? <SearchModal handleSearchModal={handleSearchModal} setWeather={setWeather}/> : null}
           {articleModal ? <ArticleModal article={article} setArticleModal={setArticleModal}  /> : null}  
           <CityViewSlider />
