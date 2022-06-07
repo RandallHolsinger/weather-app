@@ -5,7 +5,7 @@
 .FiveDay h3 {
     color: #fff;
     padding: 15px;
-    background: linear-gradient(135deg, #5d7fd0  , #0748b0, #14446c);
+    background: linear-gradient(135deg, #14446c  , #0748b0, #5d7fd0 );
     border-radius: 10px 10px 0px 0px;
 }
 
@@ -71,26 +71,27 @@
   .FiveDay {
     width: 65%;
   }
+  .FiveDay h3 {
+    
+  }
   .five-day-container {
     height: 325px;
-  }
-  .five-day-info {
-    margin-top: 25px;
   }
   .five-day-container ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 40px;
   }
   .five-day-container h3 {
     font-size: 1.5em;
   }
 
   .five-day-container h5 {
-    font-size: 1.3em;
+    font-size: 1.2em;
   } 
   .five-day-container ul li span {
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
 }
 
@@ -102,50 +103,53 @@
   .five-day-container {
     height: 325px;
   }
-  .five-day-info {
-    margin-top: 25px;
-  }
   .five-day-container ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 25px;
   }
   .five-day-container h3 {
     font-size: 1.5em;
   }
 
   .five-day-container h5 {
-    font-size: 1.3em;
+    font-size: 1.2em;
   } 
   .five-day-container ul li span {
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
 }
 
 /* Desktop */
 @media(min-width: 1366px) {
   .FiveDay {
-    width: 65%;
+    width: 60%;
   }
   .five-day-container {
     height: 325px;
-  }
-  .five-day-info {
-    margin-top: 25px;
   }
   .five-day-container ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+  .five-day-container ul li {
+    margin-right: 50px;
   }
   .five-day-container h3 {
     font-size: 1.5em;
   }
 
   .five-day-container h5 {
-    font-size: 1.3em;
+    font-size: 1.2em;
   } 
   .five-day-container ul li span {
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
 }

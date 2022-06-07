@@ -8,7 +8,7 @@ function CityViewSlider() {
 
   return(
     <div className="CityViewSlider">
-      <Slider autoplay={true} autoplaySpeed={10000} speed={100}>
+      <Slider autoplay={true} autoplaySpeed={30000} speed={0}>
         <img src={'images/banner-image-1.jpg'} alt='banner' className='slide'/>
         <img src={'images/banner-image-2.jpg'} alt='banner' className='slide'/>
         <img src={'images/banner-image-3.jpg'} alt='banner' className='slide'/>

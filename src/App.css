@@ -61,9 +61,6 @@ html {
 
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
-   body {
-    background: linear-gradient(45deg,#fff, #2074d5, #fff, #1a63b7, #fff);
-   }
    .desktop-view {
        display: flex;
        justify-content: space-around;
@@ -73,25 +70,19 @@ html {
 
 /* laptop */
 @media(max-width: 1366px) and (min-width: 1024px) {
-   body {
-    background: linear-gradient(45deg,#fff, #2074d5, #fff, #1a63b7);
-   }
    .desktop-view {
     display: flex;
     justify-content: space-around;
+    align-items: baseline;
 }
 }
 
 /* Desktop */
 @media(min-width: 1366px) {
-   .image-banner {
-       
-   }
-   body {
-    background: linear-gradient(45deg, #fff, #2074d5, #fff, #1a63b7);
-   }
    .desktop-view {
     display: flex;
+    justify-content: space-around;
+    align-items: baseline;
 }
 }
 

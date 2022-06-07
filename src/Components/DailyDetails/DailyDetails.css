@@ -18,7 +18,7 @@
 .daily-details-container h3 {
     color: #fff;
     padding: 15px;
-    background: linear-gradient(135deg, #5d7fd0  , #0748b0, #14446c);
+    background: linear-gradient(135deg, #14446c  , #0748b0, #5d7fd0 );
     border-radius: 10px 10px 0px 0px;
 }
 
@@ -40,11 +40,10 @@
 }
 
 .DailyDetails ul li img {
-  background: linear-gradient(135deg, #5d7fd0  , #0748b0, #14446c);
+  background: linear-gradient(135deg, #14446c  , #0748b0, #5d7fd0 );
   width: 40px;
   height: 40px;border-radius: 50%;
 }
-
 
 .daily-details-data {
   display: flex;

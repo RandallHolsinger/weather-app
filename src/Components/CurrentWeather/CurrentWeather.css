@@ -19,7 +19,7 @@
     height: auto;
     color: #fff;
     box-shadow: 3px 3px 3px #000;
-    background: linear-gradient(135deg, #5d7fd0  , #0748b0, #14446c);
+    background-color: hsla(0, 0%, 21%, .9);
 }
 
 .current-weather-info {
@@ -121,7 +121,7 @@
 /* laptop */
 @media(max-width: 1366px) and (min-width: 1024px) {
     .CurrentWeather {
-        width: 60%;
+        width: 40%;
     }
     .current-weather-container {
         margin: 10px 10px 20px 10px;
@@ -147,7 +147,7 @@
 /* Desktop */
 @media(min-width: 1366px) {
     .CurrentWeather {
-        width: 60%;
+        width: 40%;
     }
     .current-weather-container {
         margin: 10px 10px 20px 10px;

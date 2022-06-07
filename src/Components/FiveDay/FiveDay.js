@@ -10,7 +10,6 @@ function FiveDay(props) {
         <div className='FiveDay'>
           <div className='five-day-container'>
             <h3>Five Day Forcast</h3>
-            <div className="five-day-info">
               <ul>
                 {
                   Object.entries(weatherData.forecasts).slice(0, 5).map(([index, forecast]) => {
@@ -27,10 +26,7 @@ function FiveDay(props) {
                   })
                 }
               </ul>
-            </div>
           </div>
-       
-
         </div>
     )
 }

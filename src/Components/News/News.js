@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react'
 import { RotatingLines } from 'react-loader-spinner'
-import StoryModal from '../ArticleModal/ArticleModal'
+import ArticleModal from '../ArticleModal/ArticleModal'
 import axios from 'axios'
 import './News.css'
 
@@ -29,8 +29,8 @@ function News() {
 
     return(
         <div className="News">
-               <div className="news-container">
                <h3>News</h3>
+               <div className="news-container">
                {isLoadingNews ?
                  <div className="news-loading-container">
                      <RotatingLines color='#fff' height='150' width='150'/>
@@ -53,12 +53,12 @@ function News() {
                                    <span className='image-footer'><a href="http://www.freepik.com"><p>Image designed by starline / freepik</p></a></span>
                                  </div>
                                }
-                               <h4>{article.title}</h4>
+                               <h4 className='article-footer'>{article.title}</h4>
                              </div>
                           )
                        })
                      }
-                     {articleModal ? <StoryModal article={article} setArticleModalParent={setArticleModal}/> : null}
+                     {articleModal ? <ArticleModal article={article} setArticleModalParent={setArticleModal}/> : null}
                   </div>
                 }
               </div>
