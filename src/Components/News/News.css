@@ -158,6 +158,9 @@
       border-radius: 5px;
       width: 20%;
   }
+  .article-container:hover {
+    transform: scale(1.1);
+  }
   .article-header {
     border-radius: 5px 5px 0px 0px;
   }

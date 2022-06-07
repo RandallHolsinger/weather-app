@@ -76,7 +76,7 @@
 /* laptop */
 @media(max-width: 1366px) and (min-width: 1024px) {
   .DailyDetails {
-    width: 35%;
+    width: 40%;
   }
   .daily-details-container {
    height: 325px;
@@ -92,7 +92,7 @@
 /* Desktop */
 @media(min-width: 1366px) {
   .DailyDetails {
-    width: 35%;
+    width: 40%;
   }
   .daily-details-container {
    height: 325px;

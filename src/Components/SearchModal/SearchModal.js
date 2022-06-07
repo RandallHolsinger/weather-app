@@ -23,7 +23,7 @@ function SearchModal(props) {
     axios.get(`/api/weather/location/${city}`).then(res => {
       props.setWeather(res.data)
       console.log('1111', recentSearches)
-      // props.handleToggleSearchModal()
+      props.handleSearchModal()
     })
   }
     
@@ -78,7 +78,7 @@ function SearchModal(props) {
   return(
       <div className="SearchModal">
         <div className='search-container'>
-          <span><FontAwesomeIcon icon={faX} onClick={() => props.handleToggleSearchModal()} /></span>
+          <span><FontAwesomeIcon icon={faX} onClick={() => props.handleSearchModal()} /></span>
           <span><FontAwesomeIcon icon={faMagnifyingGlass} /></span>
           <input 
             type="text" 

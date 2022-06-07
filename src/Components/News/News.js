@@ -4,12 +4,10 @@ import ArticleModal from '../ArticleModal/ArticleModal'
 import axios from 'axios'
 import './News.css'
 
-function News() {
+function News(props) {
     
     const [news, setNews] = useState([])
-    const [article, setArticle] = useState({})
     const [isLoadingNews, setLoadingNews] = useState(true)
-    const [articleModal, setArticleModal] = useState(false)
 
     const getAllNews = () => {
         axios.get('/api/news/').then(res => {
@@ -17,11 +15,6 @@ function News() {
             setLoadingNews(false)
         })
     } 
-
-    const handleClickArticle = (value) => {
-      setArticle(value)
-      setArticleModal(true)
-    }
 
     useEffect(() => {
         getAllNews()
@@ -40,7 +33,7 @@ function News() {
                      {
                        news[0].articles.map((article, index) => {
                            return(
-                             <div key={index} onClick={() => handleClickArticle(article)} className='article-container'>
+                             <div key={index} onClick={() => props.handleArticleModal(article)} className='article-container'>
                                <div className='article-header'>
                                  <h4>{article.source.name}</h4>
                                  <h4>{article.publishedAt.slice(0, 10)}</h4>
@@ -58,7 +51,6 @@ function News() {
                           )
                        })
                      }
-                     {articleModal ? <ArticleModal article={article} setArticleModalParent={setArticleModal}/> : null}
                   </div>
                 }
               </div>

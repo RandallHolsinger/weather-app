@@ -9,13 +9,16 @@ import FiveDay from './Components/FiveDay/FiveDay';
 import DailyDetails from './Components/DailyDetails/DailyDetails';
 import News from './Components/News/News'
 import SearchModal from './Components/SearchModal/SearchModal';
+import ArticleModal from './Components/ArticleModal/ArticleModal';
 
 
 function App() {
   
   const [currentWeather, setWeather] = useState([])
   const [isLoading, setLoading] = useState(true)
-  const [toggleSearchModal, setToggleSearchModal] = useState(false)
+  const [searchModal, setSearchModal] = useState(false)
+  const [article, setArticle] = useState({})
+  const [articleModal, setArticleModal] = useState(false)
 
   const getCurrentLocation = () => {
     if(!navigator.geolocation) {
@@ -47,8 +50,13 @@ function App() {
     })
   }
 
-  const handleToggleSearchModal = () => {
-    setToggleSearchModal(!toggleSearchModal)
+  const handleSearchModal = () => {
+    setSearchModal(!searchModal)
+  }
+
+  const handleArticleModal = (article) => {
+    setArticle(article)
+    setArticleModal(!articleModal)
   }
 
   useEffect(() => {
@@ -65,15 +73,16 @@ function App() {
         </div>
         :
         <div className='app-container'>
-          <Nav handleToggleSearchModal={handleToggleSearchModal} weatherData={currentWeather} />
-          {toggleSearchModal ? <SearchModal handleToggleSearchModal={handleToggleSearchModal} setWeather={setWeather}/> : null}
+          <Nav handleSearchModal={handleSearchModal} weatherData={currentWeather} />
+          {searchModal ? <SearchModal handleSearchModal={handleSearchModal} setWeather={setWeather}/> : null}
+          {articleModal ? <ArticleModal article={article} setArticleModal={setArticleModal}  /> : null}  
           <CityViewSlider />
           <CurrentWeather weatherData={currentWeather}/>
           <div className="desktop-view">
             <FiveDay weatherData={currentWeather}/>
             <DailyDetails weatherData={currentWeather}/>
           </div>
-          <News />
+          <News handleArticleModal={handleArticleModal}/>
         </div>
       } 
     </div>

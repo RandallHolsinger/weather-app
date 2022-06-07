@@ -25,20 +25,20 @@
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
   .slide {
-    height: 50vh;
+    height: 55vh;
   }
 }
 
 /* laptop */
 @media(max-width: 1366px) and (min-width: 1024px) {
   .slide {
-    height: 50vh;
+    height: 60vh;
   }
 }
 
 /* Desktop */
 @media(min-width: 1366px) {
   .slide {
-    height: 50vh;
+    height: 60vh;
   }
 }

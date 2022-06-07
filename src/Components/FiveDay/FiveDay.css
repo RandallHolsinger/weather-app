@@ -98,7 +98,7 @@
 /* laptop */
 @media(max-width: 1366px) and (min-width: 1024px) {
   .FiveDay {
-    width: 65%;
+    width: 60%;
   }
   .five-day-container {
     height: 325px;
@@ -107,7 +107,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     margin-top: 25px;
   }
@@ -135,7 +135,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
     margin-top: 10px;
   }
