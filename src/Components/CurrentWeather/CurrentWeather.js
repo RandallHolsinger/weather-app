@@ -17,7 +17,7 @@ function CurrentWeather(props) {
       checkProps(props)
     })
     
-    const {weatherData} = props
+    const {weatherData, weatherUnit} = props
     return (
         <div className='CurrentWeather'>
             {isLoading ?
@@ -26,16 +26,16 @@ function CurrentWeather(props) {
               </div>
               :
               <div className='current-weather-container'>
+                <h4>{weatherData.location.city}{', '}{weatherData.location.region}{' '}{weatherData.location.country}</h4>
                 <div className='current-weather-info'>
-                  <h2>{weatherData.location.city}{', '}{weatherData.location.region}</h2>
-                  <h3>{weatherData.location.country}</h3>
-                  <h4>{weatherData.current_observation.condition.text}</h4>
-                  <div className="current-weather-temp">
+                  <div className="temp-desc">
                     <h2>{weatherData.current_observation.condition.temperature}°</h2>
+                    <h4>{weatherData.current_observation.condition.text}</h4>
+                    <h4>High:{' '}{weatherData.forecasts[0].high}{weatherUnit === 'f' ? '°F' : '°C'}{' '}•{' '}Low:{' '}{weatherData.forecasts[0].low}{weatherUnit === 'f' ? '°F' : '°C'}</h4>
                   </div>
-                </div>
-                <div className="current-weather-icon">
-                  <WeatherIcon code={weatherData.current_observation.condition.code} />
+                  <div className="current-weather-icon">
+                    <WeatherIcon code={weatherData.current_observation.condition.code} />
+                  </div>
                 </div>
               </div> 
             }

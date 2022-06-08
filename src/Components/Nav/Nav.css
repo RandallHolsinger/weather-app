@@ -61,12 +61,12 @@ nav ul li:nth-child(2) {
     color: #fff;
     display: flex;
     align-items: center;
-    animation: settingSlide 200ms ease-in;
+    animation: settingsSlideOpen 300ms ease-in;
 }
 
-@keyframes settingSlide {
+@keyframes settingsSlideOpen {
     0% {
-        transform: translateY(-20px);
+        transform: translateY(-65px);
     }
     100% {
         transform: translateY(0);

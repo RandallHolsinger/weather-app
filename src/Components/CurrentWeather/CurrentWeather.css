@@ -12,8 +12,8 @@
 .current-weather-container {
     margin: 20px 10px 20px 10px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     border: 1px solid #fff;
     border-radius: 10px;
     height: auto;
@@ -21,19 +21,41 @@
     box-shadow: 3px 3px 3px #000;
     background-color: hsla(0, 0%, 21%, .9);
 }
-
+.current-weather-container h4:nth-child(1) {
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #14446c  , #0748b0, #5d7fd0 );
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+    padding: 3px;
+}
 .current-weather-info {
-    padding: 5px
-}
-
-.current-weather-temp {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    border-top: 1px solid #fff;
 }
 
-.current-weather-temp img {
-    width: 25%;
-    height: 25%;
+.temp-desc {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.temp-desc h2 {
+    font-size: 2.5em;
+}
+
+.temp-desc h4:nth-child(2) {
+    font-size: 1em;
+}
+
+.temp-desc h4:nth-child(3) {
+    font-size: 1em;
+}
+
+.current-weather-info img {
+    width: auto;
+    height: 100%;
 }
 
 .current-weather-icon {
@@ -41,8 +63,8 @@
     justify-content: center;
     align-items: center;
     margin-right: 10px;
-    height: 100%;
-    width: 50%;
+    width: 30%;
+    height: auto;
 }
 
 /*////// Media Queries //////*/

@@ -38,14 +38,17 @@ function App() {
   }
   
   const getCurrentWeather = (lat, lon) => {
-    axios.get(`/api/weather/location/${lat}/${lon}`).then(res => {
+    console.log('hitting current weather with unit', weatherUnit)
+    axios.get(`/api/weather/location/${lat}/${lon}/${weatherUnit}`).then(res => {
       setWeather(res.data)
+      console.log('data', res.data)
       setLoading(false)
     })
   }
 
   const getDefaultWeather = () => {
-    axios.get('/api/weather/default').then(res => {
+    console.log('hitting default weather with unit', weatherUnit)
+    axios.get(`/api/weather/default/${weatherUnit}`).then(res => {
       setWeather(res.data)
       setLoading(false)
     })
@@ -62,9 +65,9 @@ function App() {
 
   useEffect(() => {
     getCurrentLocation()
-  },[])
-  
-  
+  },[weatherUnit])
+
+    
   return (
     <div className="App">
       {isLoading ? 
@@ -75,13 +78,13 @@ function App() {
         :
         <div className='app-container'>
           <Nav handleSearchModal={handleSearchModal} weatherData={currentWeather} weatherUnit={weatherUnit} setWeatherUnit={setWeatherUnit} />
-          {searchModal ? <SearchModal handleSearchModal={handleSearchModal} setWeather={setWeather}/> : null}
+          {searchModal ? <SearchModal handleSearchModal={handleSearchModal} setWeather={setWeather}  weatherUnit={weatherUnit}/> : null}
           {articleModal ? <ArticleModal article={article} setArticleModal={setArticleModal}  /> : null}  
           <CityViewSlider />
-          <CurrentWeather weatherData={currentWeather}/>
+          <CurrentWeather weatherData={currentWeather} weatherUnit={weatherUnit}/>
           <div className="desktop-view">
-            <FiveDay weatherData={currentWeather}/>
-            <DailyDetails weatherData={currentWeather}/>
+            <FiveDay weatherData={currentWeather} weatherUnit={weatherUnit}/>
+            <DailyDetails weatherData={currentWeather} weatherUnit={weatherUnit}/>
           </div>
           <News handleArticleModal={handleArticleModal}/>
         </div>

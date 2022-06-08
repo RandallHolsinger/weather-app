@@ -4,12 +4,12 @@ const {WEATHER_API_KEY, NEWS_API_KEY} = process.env
 module.exports = {
 
     weather: async (req, res) => {
-        const {lat, lon} = req.params
+        const {lat, lon, unit} = req.params
         try {
             await axios({
                 method: 'GET',
                 url: 'https://yahoo-weather5.p.rapidapi.com/weather',
-                params: {lat: `${lat}`, long: `${lon}`, format: 'json', u: 'f'},
+                params: {lat: `${lat}`, long: `${lon}`, format: 'json', u: `${unit}`},
                 headers: {
                   'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com',
                   'X-RapidAPI-Key': `${WEATHER_API_KEY}`
@@ -25,10 +25,11 @@ module.exports = {
 
     default: async (req, res) => {
         try {
+            const {unit} = req.params
             await axios({
                 method: 'GET',
                 url: 'https://yahoo-weather5.p.rapidapi.com/weather',
-                params: {lat: '37.773972', long: '-122.431297', format: 'json', u: 'f'},
+                params: {lat: '37.773972', long: '-122.431297', format: 'json', u: `${unit}`},
                 headers: {
                   'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com',
                   'X-RapidAPI-Key': `${WEATHER_API_KEY}`
@@ -63,12 +64,13 @@ module.exports = {
     },
 
     search: async (req, res) => {
-        const {city} = req.params
+        const {city, unit} = req.params
+        console.log('hitting search backend!', req.params)
         try {
             await axios({
                 method: 'GET',
                 url: 'https://yahoo-weather5.p.rapidapi.com/weather',
-                params: {location: `${city}`, format: 'json', u: 'f'},
+                params: {location: `${city}`, format: 'json', u: `${unit}`},
                 headers: {
                   'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com',
                   'X-RapidAPI-Key': `${WEATHER_API_KEY}`

@@ -5,8 +5,7 @@ import { faWind, faDroplet, faSun, faArrowUp, faArrowDown, faArrowsLeftRightToLi
 
 function DailyDetails(props) {
 
-    const {weatherData} = props
-    
+    const {weatherData, weatherUnit} = props
     return(
         <div className="DailyDetails">
             <div className="daily-details-container">
@@ -14,7 +13,7 @@ function DailyDetails(props) {
               <ul>
                   <li>
                       <label><FontAwesomeIcon icon={faWind} />{' '}Wind</label>
-                      <span className="daily-details-data">{weatherData.current_observation.wind.speed}{' '}Mph</span>
+                      <span className="daily-details-data">{weatherData.current_observation.wind.speed}{' '}{weatherUnit === 'f' ? 'Mph' : 'Kph'}</span>
                   </li>
                   <li>
                       <label><FontAwesomeIcon icon={faDroplet} />{' '}Humidity</label>
@@ -22,7 +21,7 @@ function DailyDetails(props) {
                   </li>
                   <li>
                       <label><FontAwesomeIcon icon={faArrowsLeftRightToLine} />{' '}Pressure</label>
-                      <span className="daily-details-data">{weatherData.current_observation.atmosphere.pressure}"</span>
+                      <span className="daily-details-data">{weatherData.current_observation.atmosphere.pressure}{weatherUnit === 'f' ? '"' : 'cm'}</span>
                   </li>
                   <li>
                       <label><FontAwesomeIcon icon={faSun} /><FontAwesomeIcon icon={faArrowUp} />{' '}Sunrise</label>

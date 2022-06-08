@@ -3,6 +3,7 @@ import './SearchModal.css'
 import {RotatingLines } from 'react-loader-spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass, faX } from '@fortawesome/free-solid-svg-icons'
+import OutsideClickHandler from 'react-outside-click-handler';
 import axios from 'axios'
 
 function SearchModal(props) {
@@ -20,7 +21,9 @@ function SearchModal(props) {
   }
   
   const weatherSearch = (city) => {
-    axios.get(`/api/weather/location/${city}`).then(res => {
+    const {weatherUnit} = props
+    console.log('hitting weather search modal with unit', weatherUnit)
+    axios.get(`/api/weather/location/${city}/${weatherUnit}`).then(res => {
       props.setWeather(res.data)
       console.log('1111', recentSearches)
       props.handleSearchModal()
@@ -49,12 +52,7 @@ function SearchModal(props) {
       handleCitiesSearch(e)
     }
   }
-
-  useEffect(() => {
-  
-  }, [])
     
-
   const mappedCitiesList = cityList.map((city, index) => {
     return(
       <div key={index} onClick={() => (weatherSearch(city.name), setRecentSearches(recentSearches => [city, ...recentSearches]), setCityList([]))} className="city-list-items">
@@ -77,27 +75,29 @@ function SearchModal(props) {
   
   return(
       <div className="SearchModal">
-        <div className='search-container'>
-          <span><FontAwesomeIcon icon={faX} onClick={() => props.handleSearchModal()} /></span>
-          <span><FontAwesomeIcon icon={faMagnifyingGlass} /></span>
-          <input 
-            type="text" 
-            list='cities' 
-            placeholder='City, State, Country, Region' 
-            onChange={(e) => (handleCitiesSearch(e.target.value))}
-            onKeyDown={(e) => {handleOnKeyDownSearch(e.target.value)}}
-          />
-          <div className="loading-cities-container">
-            {isLoadingCities ? <><RotatingLines /></> : null}
+        <OutsideClickHandler onOutsideClick={() => props.handleSearchModal()}>
+          <div className='search-container'>
+            <span><FontAwesomeIcon icon={faX} onClick={() => props.handleSearchModal()} /></span>
+            <span><FontAwesomeIcon icon={faMagnifyingGlass} /></span>
+            <input 
+              type="text" 
+              list='cities' 
+              placeholder='City, State, Country, Region' 
+              onChange={(e) => (handleCitiesSearch(e.target.value))}
+              onKeyDown={(e) => {handleOnKeyDownSearch(e.target.value)}}
+            />
+            <div className="loading-cities-container">
+              {isLoadingCities ? <><RotatingLines /></> : null}
+            </div>
           </div>
-        </div>
-        <div className="city-list-container">
-          {!isLoadingCities ? <div>{mappedCitiesList}</div> : null}
-        </div>
-        <h4>Recent Searches</h4>
-        <div className="recent-search-container">
-           {mappedRecentSearches}
-        </div>
+          <div className="city-list-container">
+            {!isLoadingCities ? <div>{mappedCitiesList}</div> : null}
+          </div>
+          <h4>Recent Searches</h4>
+          <div className="recent-search-container">
+             {mappedRecentSearches}
+          </div>
+        </OutsideClickHandler>
       </div>
   )
 }
