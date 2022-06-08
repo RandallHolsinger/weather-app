@@ -49,18 +49,28 @@ nav ul li:nth-child(2) {
 }
 
 .settings-container {
-    position: absolute;
-    top: 70px;
+    position: fixed;
+    top: 57px;
     left: 0px;
     width: 300px;
     height: 60px;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 0px 0px 10px 0px;
     box-shadow: 3px 3px 3px #000;
-    z-index: 10000;
-    background: linear-gradient(360deg, #14446c  , #0748b0, #5d7fd0 );
+    z-index: 999;
+    background-color: #363636;
     color: #fff;
     display: flex;
     align-items: center;
+    animation: settingSlide 200ms ease-in;
+}
+
+@keyframes settingSlide {
+    0% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .settings-container label {
@@ -69,14 +79,14 @@ nav ul li:nth-child(2) {
 .settings-container div {
     display: flex;
     margin-left: 10px;
-    width: 200px;
+    width: 300px;
 }
 
 .settings-container div:nth-child(1) {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 20%;
     padding: 10px;
 }
 
@@ -85,11 +95,16 @@ nav ul li:nth-child(2) {
   font-size: 1.3em;
 }
 
+.settings-container span:nth-child(4) {
+    margin-right: 10px;
+    font-size: 1em;
+}
+
 .settings-container div:nth-child(2) {
    display: flex;
    justify-content: center;
    align-items: center;
-   width: 50%;
+   width: 40%;
    padding: 10px;
 }
 

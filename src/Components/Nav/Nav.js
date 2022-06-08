@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Nav.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGear, faLocationArrow, faMagnifyingGlass, faNewspaper } from '@fortawesome/free-solid-svg-icons'
+import { faGear, faLocationArrow, faMagnifyingGlass, faX } from '@fortawesome/free-solid-svg-icons'
 
 
 function Nav(props) {
@@ -38,6 +38,7 @@ function Nav(props) {
                 <span>°C</span>
               </div>
             </div>
+            <span><FontAwesomeIcon icon={faX} onClick={() => setShowSettings(!showSettings)}/></span>
           </div>
           :
           null
