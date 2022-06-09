@@ -89,7 +89,7 @@
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
     .CurrentWeather {
-        width: 60%;
+        width: 45%;
     }
 }
 

@@ -24,21 +24,30 @@
 
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
+  .CityViewSlider {
+    margin: 0% 10% 0% 10%;
+  }
   .slide {
-    height: 55vh;
+    height: 40vh;
   }
 }
 
 /* laptop */
 @media(max-width: 1366px) and (min-width: 1024px) {
+  .CityViewSlider {
+    margin: 0% 10% 0% 10%;
+  }
   .slide {
-    height: 60vh;
+    height: 40vh;
   }
 }
 
 /* Desktop */
 @media(min-width: 1366px) {
+  .CityViewSlider {
+    margin: 0% 15% 0% 15%;
+  }
   .slide {
-    height: 60vh;
+    height: 40vh;
   }
 }

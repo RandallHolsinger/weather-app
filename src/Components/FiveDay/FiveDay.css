@@ -68,7 +68,7 @@
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
   .FiveDay {
-    width: 65%;
+    width: 35%;
   }
   .FiveDay h3 {
     
