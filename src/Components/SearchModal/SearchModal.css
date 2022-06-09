@@ -6,7 +6,6 @@
   transform: translate(-50%, -40%);
   width: 95%;
   height: 80vh;
-  border: 1px solid #fff;
   border-radius: 5px;
   box-shadow: 3px 3px 3px #000;
   background-color: #363636;
@@ -54,7 +53,6 @@
   width: 200px;
   margin-right: 10px;
   font-size: 15px;
-  border: 2px solid #fff;
   padding: 3px;
 }
 /*//// City Search List //// */

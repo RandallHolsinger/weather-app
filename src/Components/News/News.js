@@ -46,7 +46,9 @@ function News(props) {
                                    <span className='image-footer'><a href="http://www.freepik.com"><p>Image designed by starline / freepik</p></a></span>
                                  </div>
                                }
-                               <h4 className='article-footer'>{article.title}</h4>
+                                <div className="article-footer">
+                                  <h4>{article.title}</h4>
+                                </div>
                              </div>
                           )
                        })

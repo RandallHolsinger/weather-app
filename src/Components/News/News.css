@@ -9,11 +9,13 @@
 }
 
 .News h3 {
+    box-sizing: border-box;
+    width: 100%;
     color: #fff;
     padding: 25px;
     margin-top: 30px;
-    background: linear-gradient(360deg, #14446c  , #0748b0, #5d7fd0 );
-    box-shadow: 0px 0px 40px 20px #000;
+    background: linear-gradient(360deg, #0e4091  , #0748b0, #5d7fd0 );
+    box-shadow: 2px 2px 2px #000;
 }
 
 .news-data {
@@ -26,12 +28,11 @@
 }
 
 .article-container {
-    background-color: #363636;
+    background-color: #2b2b2b;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid #fff;
     box-shadow: 3px 3px 3px #000;
     border-radius: 5px;
     margin: 20px;
@@ -42,7 +43,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background: linear-gradient(360deg, #14446c  , #0748b0, #5d7fd0);
+    background: linear-gradient(360deg, #0e4091  , #0748b0, #5d7fd0);
     border-radius: 5px 5px 0px 0px; 
     padding: 15px;    
 }
@@ -63,14 +64,15 @@
 }
 
 .article-footer {
-  padding: 20px;
+  padding: 10px;
 }
 
 .image-footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    color: #fff;
+    background-color: #2b2b2b;
     width: 100%;
     height: 7px;
 }
@@ -94,7 +96,7 @@
 /*////// Media Queries //////*/
 
 /* Mobile */
-@media only screen and (max-width: 767px) {
+@media only screen and (min-width: 767px) {
   
 }
 
@@ -111,8 +113,6 @@
     font-size: 2em;
   }
   .article-container {
-      border: 1px solid #fff;
-      border-radius: 5px;
       margin: 10px;
       width: 40%;
   }
@@ -125,12 +125,13 @@
     flex-wrap: wrap;
     align-items: flex-start;
   }
-  .news-data h4 {
-    font-size: .7em;
-  }
   .article-footer {
       padding: 10px;
   }
+  .article-footer > h4 {
+    font-size: 1em;
+  }
+
   .news-data img {
     width: 100%;
     height: 150px;
@@ -154,18 +155,16 @@
     font-size: 2em;
   }
   .article-container {
-      border: 1px solid #fff;
-      border-radius: 5px;
       width: 20%;
   }
   .article-container:hover {
     transform: scale(1.1);
   }
-  .article-header {
-    border-radius: 5px 5px 0px 0px;
-  }
   .article-container:nth-child(4) ~ * {
     display: block;
+  }
+  .article-footer {
+    padding: 20px;
   }
   .news-data {
     display: flex;
@@ -202,7 +201,6 @@
         font-size: 2em;
       }
       .article-container {
-          border: 1px solid #fff;
           border-radius: 5px;
           margin: 10px;
           width: 25%;
