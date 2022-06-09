@@ -78,16 +78,15 @@ function SearchModal(props) {
         <OutsideClickHandler onOutsideClick={() => props.handleSearchModal()}>
           <div className='search-container'>
             <span><FontAwesomeIcon icon={faX} onClick={() => props.handleSearchModal()} /></span>
-            <span><FontAwesomeIcon icon={faMagnifyingGlass} /></span>
-            <input 
-              type="text" 
-              list='cities' 
-              placeholder='City, State, Country, Region' 
-              onChange={(e) => (handleCitiesSearch(e.target.value))}
-              onKeyDown={(e) => {handleOnKeyDownSearch(e.target.value)}}
-            />
-            <div className="loading-cities-container">
-              {isLoadingCities ? <><RotatingLines /></> : null}
+            <div className="search-input">
+              <span><FontAwesomeIcon icon={faMagnifyingGlass} /></span>
+              <input 
+                type="text" 
+                list='cities' 
+                placeholder='City, State, Country...' 
+                onChange={(e) => (handleCitiesSearch(e.target.value))}
+                onKeyDown={(e) => {handleOnKeyDownSearch(e.target.value)}}
+              />
             </div>
           </div>
           <div className="city-list-container">
@@ -96,6 +95,9 @@ function SearchModal(props) {
           <h4>Recent Searches</h4>
           <div className="recent-search-container">
              {mappedRecentSearches}
+          </div>
+          <div className="loading-cities-container">
+            {isLoadingCities ? <><RotatingLines /></> : null}
           </div>
         </OutsideClickHandler>
       </div>

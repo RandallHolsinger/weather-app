@@ -10,7 +10,7 @@
     color: #fff;
     margin: 20px 10px 10px 10px;
     border: 1px solid #fff;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 3px 3px 3px black;
     height: auto;
 }
@@ -19,7 +19,7 @@
     color: #fff;
     padding: 15px;
     background: linear-gradient(135deg, #14446c  , #0748b0, #5d7fd0 );
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
 }
 
 
@@ -42,7 +42,7 @@
 .DailyDetails ul li img {
   background: linear-gradient(135deg, #14446c  , #0748b0, #5d7fd0 );
   width: 40px;
-  height: 40px;border-radius: 50%;
+  height: 40px;
 }
 
 .daily-details-data {

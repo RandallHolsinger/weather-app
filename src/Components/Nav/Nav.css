@@ -28,7 +28,6 @@ nav ul li:nth-child(1) {
 
 nav ul li:nth-child(2) {
     display: flex;
-    justify-content: center;
     align-items: center;
     margin: 0 auto;
 }
@@ -54,7 +53,7 @@ nav ul li:nth-child(2) {
     left: 0px;
     width: 300px;
     height: 60px;
-    border-radius: 0px 0px 10px 0px;
+    border-radius: 0px 0px 5px 0px;
     box-shadow: 3px 3px 3px #000;
     z-index: 999;
     background-color: #363636;
