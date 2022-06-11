@@ -188,11 +188,15 @@
     }
     .article-container {
         border-radius: 5px;
-        margin: 10px;
+        margin: 20px;
         width: 20%;
     }
     .article-header {
       font-size: 1em;
+    }
+    .article-container:hover {
+        cursor: pointer;
+        transform: scale(1.1);
     }
     .article-container:nth-child(4) ~ * {
         display: block;

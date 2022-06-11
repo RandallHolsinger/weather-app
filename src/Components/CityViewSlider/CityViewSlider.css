@@ -26,7 +26,7 @@
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
   .CityViewSlider {
-    margin: 0% 10% 0% 10%;
+    margin: 100px 10% 0% 10%;
   }
   .slide {
     height: 50vh;
@@ -36,7 +36,7 @@
 /* laptop */
 @media(max-width: 1366px) and (min-width: 1024px) {
   .CityViewSlider {
-    margin: 0% 10% 0% 10%;
+    margin: 100px 10% 0% 10%;
   }
   .slide {
     height: 55vh;
@@ -46,7 +46,7 @@
 /* Desktop */
 @media(min-width: 1366px) {
   .CityViewSlider {
-    margin: 0% 10% 0% 10%;
+    margin: 100px 10% 0% 10%;
   }
   .slide {
     height: 65vh;

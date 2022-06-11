@@ -10,6 +10,7 @@ import DailyDetails from './Components/DailyDetails/DailyDetails';
 import News from './Components/News/News'
 import SearchModal from './Components/SearchModal/SearchModal';
 import ArticleModal from './Components/ArticleModal/ArticleModal';
+import Footer from './Components/Footer/Footer';
 
 
 function App() {
@@ -87,6 +88,7 @@ function App() {
             <DailyDetails weatherData={currentWeather} weatherUnit={weatherUnit}/>
           </div>
           <News handleArticleModal={handleArticleModal}/>
+          <Footer />
         </div>
       } 
     </div>

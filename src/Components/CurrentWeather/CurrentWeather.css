@@ -22,7 +22,7 @@
 }
 .current-weather-container h4:nth-child(1) {
     box-sizing: border-box;
-    background: linear-gradient(135deg, #1f58b2  , #0748b0, #5d7fd0 );
+    background: linear-gradient(135deg, #0748b0, #1f58b2 , #5d7fd0 );
     border-radius: 5px 5px 0px 0px;
     width: 100%;
     padding: 10px;
@@ -90,6 +90,7 @@
 @media(max-width: 1024px) and (min-width: 768px) {
     .CurrentWeather {
         width: 40%;
+        top: 15%
     }
 }
 
@@ -97,7 +98,7 @@
 @media(max-width: 1366px) and (min-width: 1024px) {
     .CurrentWeather {
         width: 30%;
-        margin-top: 10px;
+        top: 15%
     }
     
 }
@@ -106,7 +107,7 @@
 @media(min-width: 1366px) {
     .CurrentWeather {
         width: 25%;
-        margin-top: 10px;
+        top: 20%
     }
     
 }

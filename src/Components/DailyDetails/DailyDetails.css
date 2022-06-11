@@ -17,7 +17,7 @@
 .daily-details-container h3 {
     color: #fff;
     padding: 15px;
-    background: linear-gradient(135deg,  #1f58b2 , #0748b0, #5d7fd0 );
+    background: linear-gradient(135deg, #0748b0, #1f58b2 , #5d7fd0 );
     border-radius: 5px 5px 0px 0px;
 }
 
@@ -39,7 +39,6 @@
 }
 
 .DailyDetails ul li img {
-  background: linear-gradient(135deg, #14446c  , #0748b0, #5d7fd0 );
   width: 40px;
   height: 40px;
 }
