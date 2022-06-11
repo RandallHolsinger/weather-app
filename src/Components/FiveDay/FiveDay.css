@@ -3,6 +3,8 @@
 }
 
 .FiveDay h3 {
+    display: flex;
+    /* justify-content: center; */
     color: #fff;
     padding: 15px;
     background: linear-gradient(135deg, #1f58b2  , #0748b0, #5d7fd0 );
