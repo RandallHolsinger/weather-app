@@ -59,7 +59,7 @@
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
   .DailyDetails {
-    width: 35%;
+    width: 40%;
   }
   .daily-details-container {
    height: 325px;

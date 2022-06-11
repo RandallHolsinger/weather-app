@@ -89,15 +89,15 @@
 /* Tablet */
 @media(max-width: 1024px) and (min-width: 768px) {
     .CurrentWeather {
-        width: 45%;
+        width: 40%;
     }
 }
 
 /* laptop */
 @media(max-width: 1366px) and (min-width: 1024px) {
     .CurrentWeather {
-        width: 40%;
-        margin-top: 20px;
+        width: 30%;
+        margin-top: 10px;
     }
     
 }
@@ -105,7 +105,8 @@
 /* Desktop */
 @media(min-width: 1366px) {
     .CurrentWeather {
-        width: 30%;
+        width: 25%;
+        margin-top: 10px;
     }
     
 }
