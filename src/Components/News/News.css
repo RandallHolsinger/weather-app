@@ -12,10 +12,10 @@
     box-sizing: border-box;
     width: 100%;
     color: #fff;
-    padding: 25px;
+    padding: 30px;
     margin-top: 30px;
     background-color: #2b2b2b;
-    box-shadow: 2px 2px 2px #000;
+    box-shadow: 0px 20px 30px #000;
 }
 
 .news-data {
@@ -33,7 +33,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 3px 3px 3px #000;
+    box-shadow: 0px 20px 30px #000;
     border-radius: 5px;
     margin: 20px;
 }
@@ -43,7 +43,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background: linear-gradient(360deg, #0e4091 , #0748b0, #5d7fd0);
+    background-color: #0748b0;
     border-radius: 5px 5px 0 0;
     padding: 15px;
 }
@@ -100,13 +100,15 @@
     }
     .News h3 {
         font-size: 1.5em;
+        box-shadow: 3px 3px 3px #000;
     }
     .article-container {
         margin: 10px;
         width: 40%;
+        box-shadow: 3px 3px 3px #000;
     }
     .article-header {
-      font-size: 1em;
+      font-size: .7em;
     }
     .article-container:nth-child(4) ~ * {
         display: block;
@@ -124,7 +126,7 @@
 
     .news-data img {
         width: 100%;
-        height: 200px;
+        height: 150px;
     }
 
 }
@@ -133,15 +135,17 @@
 @media(max-width: 1366px) and (min-width: 1024px) {
     .News h3 {
         font-size: 1.5em;
+        box-shadow: 3px 3px 3px #000;
     }
     .news-container h3 {
         font-size: 2em;
     }
     .article-container {
         width: 25%;
+        box-shadow: 3px 3px 3px #000;
     }
     .article-header {
-      font-size: 1em;
+      font-size: .7em;
     }
     .article-container:hover {
         cursor: pointer;
@@ -158,9 +162,6 @@
         flex-direction: row;
         flex-wrap: wrap;
         align-items: flex-start;
-    }
-    .news-data h4 {
-        font-size: 0.7em;
     }
     .news-data h4:nth-child(3) {
         padding: 5px;
@@ -182,17 +183,18 @@
 @media(min-width: 1366px) {
     .News h3 {
         font-size: 1.5em;
+        box-shadow: 3px 3px 3px #000;
     }
     .news-container h3 {
         font-size: 2em;
     }
     .article-container {
-        border-radius: 5px;
+        box-shadow: 3px 3px 3px #000;
         margin: 20px;
         width: 20%;
     }
     .article-header {
-      font-size: 1em;
+      font-size: .7em;
     }
     .article-container:hover {
         cursor: pointer;
@@ -206,9 +208,6 @@
         flex-direction: row;
         flex-wrap: wrap;
         align-items: flex-start;
-    }
-    .news-data h4 {
-        font-size: 0.7em;
     }
     .news-data img {
         width: 100%;

@@ -6,7 +6,7 @@
     top: 10%;
     left: 50%;
     transform: translate(-50%, -10%);
-    width: 90%;
+    width: 95%;
 }
 
 .current-weather-container {
@@ -22,7 +22,7 @@
 }
 .current-weather-container h4:nth-child(1) {
     box-sizing: border-box;
-    background: linear-gradient(135deg, #0748b0, #1f58b2 , #5d7fd0 );
+    background-color: #0748b0;
     border-radius: 5px 5px 0px 0px;
     width: 100%;
     padding: 10px;
@@ -69,14 +69,12 @@
 
 /* Mobile */
 @media only screen and (min-width: 450px) {
-    .CurrentWeather {
-        width: 70%;
-    }
+
 }
 
 @media(max-width: 600px) and (min-width: 450px) {
     .CurrentWeather {
-        width: 50%;
+        width: 70%;
     }
 }
 
@@ -90,7 +88,7 @@
 @media(max-width: 1024px) and (min-width: 768px) {
     .CurrentWeather {
         width: 40%;
-        top: 15%
+        top: 11%
     }
 }
 
@@ -98,7 +96,7 @@
 @media(max-width: 1366px) and (min-width: 1024px) {
     .CurrentWeather {
         width: 30%;
-        top: 15%
+        top: 20%
     }
     
 }
