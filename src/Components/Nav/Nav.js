@@ -21,9 +21,9 @@ function Nav(props) {
               <li>
                 <span><FontAwesomeIcon icon={faLocationArrow}/></span>
                 <marquee className='location-info-mobile' direction='left' scrollamount='2'>
-                  <span>{weatherData.location.city},{weatherData.location.region}</span>
+                  <span>{weatherData.location.city},{weatherData.location.region}{' - '}{weatherData.location.country}</span>
                 </marquee>
-                <span className='location-info'>{weatherData.location.city},{weatherData.location.region}</span>
+                <span className='location-info'>{weatherData.location.city},{weatherData.location.region}{' - '}{weatherData.location.country}</span>
                 <span><FontAwesomeIcon icon={faMagnifyingGlass} onClick={() => props.handleSearchModal()} /></span>
               </li>
             </ul>

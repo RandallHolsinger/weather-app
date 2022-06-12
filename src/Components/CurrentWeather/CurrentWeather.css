@@ -20,13 +20,7 @@
     box-shadow: 3px 3px 3px #000;
     background-color: hsla(0, 0%, 17%, .8);
 }
-.current-weather-container h4:nth-child(1) {
-    box-sizing: border-box;
-    background-color: #0748b0;
-    border-radius: 5px 5px 0px 0px;
-    width: 100%;
-    padding: 10px;
-}
+
 .current-weather-info {
     display: flex;
     justify-content: space-between;
@@ -88,7 +82,10 @@
 @media(max-width: 1024px) and (min-width: 768px) {
     .CurrentWeather {
         width: 40%;
-        top: 11%
+        top: 9%;
+    }
+    .current-weather-container {
+        padding: 5px;
     }
 }
 
@@ -96,7 +93,10 @@
 @media(max-width: 1366px) and (min-width: 1024px) {
     .CurrentWeather {
         width: 30%;
-        top: 20%
+        top: 10%
+    }
+    .current-weather-container {
+        padding: 5px;
     }
     
 }
@@ -105,7 +105,10 @@
 @media(min-width: 1366px) {
     .CurrentWeather {
         width: 25%;
-        top: 20%
+        top: 10%
+    }
+    .current-weather-container {
+        padding: 10px;
     }
     
 }

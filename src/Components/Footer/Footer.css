@@ -3,8 +3,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 30px;
-  background-color: #2b2b2b;
-  box-shadow: 0px 0px 10px #000;
+  background-color: #0748b0;
   padding: 20px;
 }
 
@@ -13,7 +12,7 @@
   font-family: 'MonteCarlo';
   font-weight: 600;
   letter-spacing: 3.5px;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 /*///// Media Queries //////*/

@@ -43,7 +43,7 @@ nav ul li:nth-child(2) {
     box-shadow: 0 0 10px 1px inset #000;
     border-radius: 5px;
     margin: 0 10px;
-    width: 150px;
+    width: 200px;
     padding: 3px;
 }
 
@@ -136,10 +136,15 @@ nav ul li:nth-child(2) {
     .location-info-mobile {
         display: none;
     }
-    .Nav ul li a {
-        font-size: 1.0em;
+    .location-info {
+        box-shadow: none;
+        width: auto;
+        letter-spacing: 2px;
+        font-weight: 600;
     }
-
+    .Nav ul li {
+        font-size: 1.3em;
+    }
 }
 
 /* laptop */
@@ -147,11 +152,31 @@ nav ul li:nth-child(2) {
     .location-info-mobile {
         display: none;
     }
+    .location-info {
+        box-shadow: none;
+        width: auto;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+    .Nav ul li {
+        font-size: 1.3em;
+    }
 }
 
 /* Desktop */
 @media(min-width: 1366px) {
     .location-info-mobile {
         display: none;
+    }
+    .location-info {
+        box-shadow: none;
+        width: auto;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+    .Nav ul li {
+        font-size: 1.3em;
+    }.current-weather-container {
+        padding: 5px;
     }
 }
