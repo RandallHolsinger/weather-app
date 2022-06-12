@@ -19,7 +19,7 @@
 
 .search-container {
   display: flex;
-  background: linear-gradient(360deg, #14446c  , #0748b0, #5d7fd0 );
+  background-color: #0748b0;
   align-items: center;
   border-radius: 5px 5px 0px 0px;
   padding: 15px;
@@ -39,21 +39,27 @@
 }
 
 .search-input > input {
+  border: none;
+  padding: 5px;
+  font-size: 1em;
+  box-shadow: 0 0 10px 1px inset #000;
+  background: #0748b0;
+  color: #fff;
   width: 100%;
-  padding: 10px;
   margin-left: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
+}
+
+::placeholder {
+  color: #fff;
+}
+
+.search-input > input:focus {
+  color: #fff;
 }
 
 .search-input span {
   color: #fff;
-}
-
-.search-input input {
-  width: 200px;
-  margin-right: 10px;
-  font-size: 15px;
-  padding: 3px;
 }
 /*//// City Search List //// */
  

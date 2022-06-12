@@ -36,7 +36,6 @@ nav ul li:nth-child(2) {
     margin: 0 20px;
     box-shadow: 0 0 10px 1px inset #000;
     border-radius: 5px;
-    padding: 5px 20px;
 }
 
 .location-info-mobile {

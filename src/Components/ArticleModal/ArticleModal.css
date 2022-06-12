@@ -24,7 +24,7 @@
 }
 
 .article-modal-header {
-    background: linear-gradient(135deg, #14446c  , #0748b0, #5d7fd0 );
+    background-color: #0748b0;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
