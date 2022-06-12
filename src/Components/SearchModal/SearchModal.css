@@ -1,3 +1,4 @@
+/*///// Search Container //////*/
 .SearchModal {
   position: fixed;
   z-index: 10000;
@@ -19,6 +20,7 @@
 
 .search-container {
   display: flex;
+  justify-content: space-between;
   background-color: #0748b0;
   align-items: center;
   border-radius: 5px 5px 0px 0px;
@@ -28,14 +30,17 @@
 .search-container > span {
   display: flex;
   color: #fff;
-  font-size: 1.3em;
+  font-size: 1em;
 }
 
 .search-input {
+  width: 85%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 0 auto;
+}
+
+.search-input span {
+  font-size: 1.3em;
 }
 
 .search-input > input {
@@ -61,6 +66,38 @@
 .search-input span {
   color: #fff;
 }
+
+/*///// Current Location Container /////*/
+
+.current-location-container {
+  color: #fff
+}
+
+.current-location-container h3 {
+  font-size: 1.4em;
+  padding: 10px;
+}
+
+.current-location-container div {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #0748b0;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  display: flex;
+  align-items: center;
+}
+
+.current-location-container span {
+  font-size: 1.3em;
+}
+
+.current-location-container h4 {
+  background-color: #0748b0;
+  font-size: 1em;
+}
+
+
 /*//// City Search List //// */
  
 .city-list-container {
@@ -104,11 +141,6 @@
 
 .city-list-items span:nth-child(2) {
   margin-right: 5px;
-}
-
-.recent-search-container {
-  border: 1px solid #fff;
-  height: auto;
 }
 
 .recent-search-cities {

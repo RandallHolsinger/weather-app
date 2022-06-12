@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './SearchModal.css'
-import {RotatingLines } from 'react-loader-spinner';
+import { RotatingLines } from 'react-loader-spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass, faX } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass, faX, faLocationArrow } from '@fortawesome/free-solid-svg-icons'
 import OutsideClickHandler from 'react-outside-click-handler';
 import axios from 'axios'
 
@@ -10,8 +10,6 @@ function SearchModal(props) {
   
   const [isLoadingCities, setLoadingCities] = useState(false)
   const [cityList, setCityList] = useState([])
-  const [recentSearches, setRecentSearches] = useState([])
-  
   
   const getCitiesList = (input) => {
     axios.get(`/api/cities/${input}`).then(res => {
@@ -25,7 +23,6 @@ function SearchModal(props) {
     console.log('hitting weather search modal with unit', weatherUnit)
     axios.get(`/api/weather/location/${city}/${weatherUnit}`).then(res => {
       props.setWeather(res.data)
-      console.log('1111', recentSearches)
       props.handleSearchModal()
     })
   }
@@ -55,7 +52,7 @@ function SearchModal(props) {
     
   const mappedCitiesList = cityList.map((city, index) => {
     return(
-      <div key={index} onClick={() => (weatherSearch(city.name), setRecentSearches(recentSearches => [city, ...recentSearches]), setCityList([]))} className="city-list-items">
+      <div key={index} onClick={() => (weatherSearch(city.name), setCityList([]))} className="city-list-items">
           <span>{city.name},</span>{' '}
           {city.adminDivision1 ? <span>{city.adminDivision1.name}</span> : null}{' '}
           <span>( {city.country.id} )</span>
@@ -63,21 +60,11 @@ function SearchModal(props) {
     )
   })
   
-  const mappedRecentSearches = recentSearches.map((recentSearch, index) => {
-    return(
-      <div key={index} className="recent-search-cities">  
-        <span>{recentSearch.name},</span>{' '}
-          {recentSearch.adminDivision1 ? <span>{recentSearch.adminDivision1.name}</span> : null}{' '}
-        <span>( {recentSearch.country.id} )</span>
-      </div>
-    )
-  })
-  
+  const {city, region, country} = props.currentLocation.location
   return(
       <div className="SearchModal">
         <OutsideClickHandler onOutsideClick={() => props.handleSearchModal()}>
           <div className='search-container'>
-            <span><FontAwesomeIcon icon={faX} onClick={() => props.handleSearchModal()} /></span>
             <div className="search-input">
               <span><FontAwesomeIcon icon={faMagnifyingGlass} /></span>
               <input 
@@ -88,16 +75,21 @@ function SearchModal(props) {
                 onKeyDown={(e) => {handleOnKeyDownSearch(e.target.value)}}
               />
             </div>
+            <span><FontAwesomeIcon icon={faX} onClick={() => props.handleSearchModal()} /></span>
+          </div>
+          <div className="current-location-container">
+            <h3>Current Location</h3>
+            <div>
+              <span><FontAwesomeIcon icon={faLocationArrow} /></span>
+              <h4>{city},{' '}{region}{' '} - {' '}{country}</h4>
+            </div>
           </div>
           <div className="city-list-container">
-            {!isLoadingCities ? <div>{mappedCitiesList}</div> : null}
+            {isLoadingCities ? <RotatingLines /> : <div>{mappedCitiesList}</div>}
           </div>
           <h4>Recent Searches</h4>
           <div className="recent-search-container">
-             {mappedRecentSearches}
-          </div>
-          <div className="loading-cities-container">
-            {isLoadingCities ? <><RotatingLines /></> : null}
+             
           </div>
         </OutsideClickHandler>
       </div>

@@ -16,6 +16,7 @@ import Footer from './Components/Footer/Footer';
 function App() {
   
   const [currentWeather, setWeather] = useState([])
+  const [currentLocation, setCurrentLocation] = useState([])
   const [isLoading, setLoading] = useState(true)
   const [searchModal, setSearchModal] = useState(false)
   const [article, setArticle] = useState({})
@@ -42,7 +43,8 @@ function App() {
     console.log('hitting current weather with unit', weatherUnit)
     axios.get(`/api/weather/location/${lat}/${lon}/${weatherUnit}`).then(res => {
       setWeather(res.data)
-      console.log('data', res.data)
+      setCurrentLocation(res.data)
+      console.log('here is the data', res.data)
       setLoading(false)
     })
   }
@@ -78,8 +80,8 @@ function App() {
         </div>
         :
         <div className='app-container'>
-          <Nav handleSearchModal={handleSearchModal} weatherData={currentWeather} weatherUnit={weatherUnit} setWeatherUnit={setWeatherUnit} />
-          {searchModal ? <SearchModal handleSearchModal={handleSearchModal} setWeather={setWeather}  weatherUnit={weatherUnit}/> : null}
+          <Nav handleSearchModal={handleSearchModal} weatherData={currentWeather} weatherUnit={weatherUnit} setWeatherUnit={setWeatherUnit}/>
+          {searchModal ? <SearchModal handleSearchModal={handleSearchModal} setWeather={setWeather}  weatherUnit={weatherUnit} currentLocation={currentLocation}/> : null}
           {articleModal ? <ArticleModal article={article} setArticleModal={setArticleModal}  /> : null}  
           <CityViewSlider />
           <CurrentWeather weatherData={currentWeather} weatherUnit={weatherUnit}/>
