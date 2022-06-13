@@ -15,19 +15,22 @@ function ArticleModal(props) {
               <FontAwesomeIcon icon={faX} onClick={() => props.setArticleModal(false)}/>
             </div>
             <div className="article-content">
-            {article.urlToImage ? <img src={article.urlToImage} alt='article'/> : <img src={'images/alternate-news-image.jpg'} alt='article'/> }
-              <div>
-                <h5>{article.source.name}</h5>
-                <h5>{article.publishedAt.slice(0, 10)}</h5>
-              </div>
-              {article.content ? <p>{article.content.slice(0,200)}</p> 
+              {article.urlToImage ? <img src={article.urlToImage} alt='article'/> : <img src={'images/alternate-news-image.jpg'} alt='article'/> }
+              <div className="article-info">
+                <div>
+                  <h5>{article.source.name}</h5>
+                  <h5>{article.publishedAt.slice(0, 10)}</h5>
+                </div>
+                {article.content ? 
+                  <p>{article.content.slice(0,200)}</p> 
                 : 
                 <div>
                   <h4>{article.title}</h4>
                   <p>Please follow link below for more information</p>
                 </div>
-              }
-              <h5>Source Link: <a href={article.url}>{article.source.name}</a></h5>
+                }
+                <h5>Source Link: <a href={article.url}>{article.source.name}</a></h5>
+              </div>
             </div>
           </OutsideClickHandler>
         </div>

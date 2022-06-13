@@ -13,7 +13,7 @@
     width: 100%;
     color: #fff;
     padding: 30px;
-    margin-top: 10px;
+    margin-top: 20px;
     background-color: #0748b0;
     box-shadow: 0px 20px 30px #000;
 }
@@ -34,7 +34,7 @@
     align-items: center;
     box-shadow: 0px 0px 50px 5px #000;
     border-radius: 5px;
-    margin: 20px 20px 0px 20px;
+    margin: 10px 20px 0px 20px;
 }
 
 .article-header {
