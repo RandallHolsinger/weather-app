@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './SearchModal.css'
 import { RotatingLines } from 'react-loader-spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass, faX, faLocationArrow } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass, faX, faLocationArrow, faCity } from '@fortawesome/free-solid-svg-icons'
 import OutsideClickHandler from 'react-outside-click-handler';
 import axios from 'axios'
 
@@ -19,11 +19,14 @@ function SearchModal(props) {
   }
   
   const weatherSearch = (city) => {
-    const {weatherUnit} = props
+    console.log('hitting weather search', city)
+    const {weatherUnit, setWeather, recentSearches, setRecentSearches, handleSearchModal} = props
     console.log('hitting weather search modal with unit', weatherUnit)
     axios.get(`/api/weather/location/${city}/${weatherUnit}`).then(res => {
-      props.setWeather(res.data)
-      props.handleSearchModal()
+      setWeather(res.data)
+      setRecentSearches(prevSearches => [res.data, ...prevSearches])
+      console.log('recent search array list', recentSearches)
+      handleSearchModal()
     })
   }
     
@@ -40,29 +43,39 @@ function SearchModal(props) {
     }
   } 
   
-  const handleOnKeyDownSearch = (e) => {
-    if(e.key === 'Enter') {
-      weatherSearch(e)
+  const handleKeyDownSearch = (event) => {
+    console.log('here is event', event)
+    if(event.key === "Enter") {
+      console.log('hitting enter key')
+      weatherSearch(event.target.value)
     } 
-    if(e.key === 'Backspace') {
-      handleCitiesSearch(e)
+    if(event.key === "Backspace") {
+      // handleCitiesSearch(event)
     }
   }
    
   
   const mappedCitiesList = cityList.map((city, index) => {
-    const {setRecentSearches, recentSearches} = props
     return(
-      <div key={index} onClick={() => (weatherSearch(city.name), setRecentSearches([city, ...recentSearches]), setCityList([]))} className="city-list-items">
+      <div key={index} onClick={() => (weatherSearch(city.name),  setCityList([]))} className="city-list-items">
           <span>{city.name},</span>{' '}
           {city.adminDivision1 ? <span>{city.adminDivision1.name}</span> : null}{' '}
           <span>( {city.country.id} )</span>
       </div>
     )
   })
+
+  const mappedRecentSearches = props.recentSearches.map((search, index) => {
+    const{city, region, country} = search.location
+    return(
+      <div key={index} onClick={() => weatherSearch(city)} className="recent-search-city">
+        <span><FontAwesomeIcon icon={faCity}/></span>
+        <h4>{city},{' '}{region}{' '} - {' '}{country}</h4>
+      </div>
+    )
+  })
   
   const {city, region, country} = props.currentLocation.location
-  const {recentSearches} = props
   return(
       <div className="SearchModal">
         <OutsideClickHandler onOutsideClick={() => props.handleSearchModal()}>
@@ -73,14 +86,14 @@ function SearchModal(props) {
                 type="text" 
                 list='cities' 
                 placeholder='City, State, Country...' 
-                onChange={(e) => (handleCitiesSearch(e.target.value))}
-                onKeyDown={(e) => {handleOnKeyDownSearch(e.target.value)}}
+                // onChange={(e) => (handleCitiesSearch(e.target.value))}
+                onKeyDown={handleKeyDownSearch}
               />
             </div>
             <span><FontAwesomeIcon icon={faX} onClick={() => props.handleSearchModal()} /></span>
           </div>
+          <h3>Current Location</h3>
           <div className="current-location-container">
-            <h3>Current Location</h3>
             <div onClick={() => weatherSearch(city)}>
               <span><FontAwesomeIcon icon={faLocationArrow} /></span>
               <h4>{city},{' '}{region}{' '} - {' '}{country}</h4>
@@ -89,9 +102,10 @@ function SearchModal(props) {
           <div className="city-list-container">
             {isLoadingCities ? <RotatingLines /> : <div>{mappedCitiesList}</div>}
           </div>
-          <h4>Recent Searches</h4>
-          <div className="recent-search-container">
-             
+          <hr/>
+          <h3>Recent Searches</h3>
+          <div className='recent-search-container'>
+            {mappedRecentSearches}
           </div>
         </OutsideClickHandler>
       </div>
