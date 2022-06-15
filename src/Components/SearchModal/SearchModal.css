@@ -21,7 +21,8 @@
   padding: 10px;
 }
 
-.SearchModal h3:nth-child(5) {
+.current-location-container:hover, .recent-search-city:hover {
+   transform: scale(1.025);
 }
 
 .search-container {
@@ -192,9 +193,7 @@
   .SearchModal {
     width: 50%;
   }
-  .current-location-container:hover, .recent-search-city:hover {
-     transform: scale(1.025);
-  }
+  
 }
 
 /* Desktop */
@@ -202,7 +201,4 @@
  .SearchModal {
   width: 50%;
  }
- .current-location-container:hover, .recent-search-city:hover {
-  transform: scale(1.025);
-}
 }

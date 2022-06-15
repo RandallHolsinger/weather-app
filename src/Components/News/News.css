@@ -38,6 +38,10 @@
     margin: 20px 20px 0px 20px;
 }
 
+.article-container:hover {
+    transform: scale(1.04);
+}
+
 .article-header {
     box-sizing: border-box;
     width: 100%;
@@ -143,8 +147,7 @@
         box-shadow: 3px 3px 3px #000;
     }
     .article-container:hover {
-        cursor: pointer;
-        transform: scale(1.03);
+        transform: scale(1.05);
     }
     .article-container:nth-child(4) ~ * {
         display: block;
@@ -189,8 +192,7 @@
         width: 20%;
     }
     .article-container:hover {
-        cursor: pointer;
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
     .article-container:nth-child(4) ~ * {
         display: block;

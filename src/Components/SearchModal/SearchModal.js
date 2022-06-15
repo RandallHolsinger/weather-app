@@ -78,7 +78,7 @@ function SearchModal(props) {
   const {city, region, country} = props.currentLocation.location
   return(
       <div className="SearchModal">
-        <OutsideClickHandler onOutsideClick={() => props.handleSearchModal()}>
+        <OutsideClickHandler onOutsideClick={() => props.setSearchModal(false)}>
           <div className='search-container'>
             <div className="search-input">
               <span><FontAwesomeIcon icon={faMagnifyingGlass} /></span>
@@ -90,7 +90,7 @@ function SearchModal(props) {
                 onKeyDown={handleKeyDownSearch}
               />
             </div>
-            <span><FontAwesomeIcon icon={faX} onClick={() => props.handleSearchModal()} /></span>
+            <span><FontAwesomeIcon icon={faX} onClick={() => props.setSearchModal(false)} /></span>
           </div>
           <h3>Current Location</h3>
           <div className="current-location-container">

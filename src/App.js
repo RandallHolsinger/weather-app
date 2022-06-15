@@ -81,10 +81,10 @@ function App() {
         </div>
         :
         <div className='app-container'>
-          <Nav handleSearchModal={handleSearchModal} weatherData={currentWeather} weatherUnit={weatherUnit} setWeatherUnit={setWeatherUnit}/>
+          <Nav searchModal={searchModal} setSearchModal={setSearchModal} weatherData={currentWeather} weatherUnit={weatherUnit} setWeatherUnit={setWeatherUnit}/>
           {searchModal ? 
             <SearchModal 
-              handleSearchModal={handleSearchModal} 
+              setSearchModal={setSearchModal} 
               setWeather={setWeather}  
               weatherUnit={weatherUnit} 
               currentLocation={currentLocation}
