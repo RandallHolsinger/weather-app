@@ -79,6 +79,7 @@
 }
 
 .current-location-container div {
+  cursor: pointer;
   margin-top: 10px;
   padding: 10px;
   background-color: #0748b0;

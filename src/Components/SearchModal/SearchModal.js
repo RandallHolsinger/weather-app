@@ -43,16 +43,17 @@ function SearchModal(props) {
   const handleOnKeyDownSearch = (e) => {
     if(e.key === 'Enter') {
       weatherSearch(e)
-      setToggleSearch(false)
     } 
     if(e.key === 'Backspace') {
       handleCitiesSearch(e)
     }
   }
-    
+   
+  
   const mappedCitiesList = cityList.map((city, index) => {
+    const {setRecentSearches, recentSearches} = props
     return(
-      <div key={index} onClick={() => (weatherSearch(city.name), setCityList([]))} className="city-list-items">
+      <div key={index} onClick={() => (weatherSearch(city.name), setRecentSearches([city, ...recentSearches]), setCityList([]))} className="city-list-items">
           <span>{city.name},</span>{' '}
           {city.adminDivision1 ? <span>{city.adminDivision1.name}</span> : null}{' '}
           <span>( {city.country.id} )</span>
@@ -61,6 +62,7 @@ function SearchModal(props) {
   })
   
   const {city, region, country} = props.currentLocation.location
+  const {recentSearches} = props
   return(
       <div className="SearchModal">
         <OutsideClickHandler onOutsideClick={() => props.handleSearchModal()}>
@@ -79,7 +81,7 @@ function SearchModal(props) {
           </div>
           <div className="current-location-container">
             <h3>Current Location</h3>
-            <div>
+            <div onClick={() => weatherSearch(city)}>
               <span><FontAwesomeIcon icon={faLocationArrow} /></span>
               <h4>{city},{' '}{region}{' '} - {' '}{country}</h4>
             </div>

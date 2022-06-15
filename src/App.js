@@ -19,6 +19,7 @@ function App() {
   const [currentLocation, setCurrentLocation] = useState([])
   const [isLoading, setLoading] = useState(true)
   const [searchModal, setSearchModal] = useState(false)
+  const [recentSearches, setRecentSearches] = useState([])
   const [article, setArticle] = useState({})
   const [articleModal, setArticleModal] = useState(false)
   const [weatherUnit, setWeatherUnit] = useState('f')
@@ -81,7 +82,18 @@ function App() {
         :
         <div className='app-container'>
           <Nav handleSearchModal={handleSearchModal} weatherData={currentWeather} weatherUnit={weatherUnit} setWeatherUnit={setWeatherUnit}/>
-          {searchModal ? <SearchModal handleSearchModal={handleSearchModal} setWeather={setWeather}  weatherUnit={weatherUnit} currentLocation={currentLocation}/> : null}
+          {searchModal ? 
+            <SearchModal 
+              handleSearchModal={handleSearchModal} 
+              setWeather={setWeather}  
+              weatherUnit={weatherUnit} 
+              currentLocation={currentLocation}
+              recentSearches={recentSearches}
+              setRecentSearches={setRecentSearches}
+            />
+          : 
+            null
+          }
           {articleModal ? <ArticleModal article={article} setArticleModal={setArticleModal}  /> : null}  
           <CityViewSlider />
           <CurrentWeather weatherData={currentWeather} weatherUnit={weatherUnit}/>
