@@ -13,8 +13,14 @@
 
 .SearchModal h3 {
   color: #fff;
-  padding: 10px;
-  margin-top: 10px;
+}
+
+.SearchModal h3:nth-child(2) {
+  padding: 10px 0px 5px 10px;
+}
+
+.SearchModal h3:nth-child(4) {
+  padding: 0px 0px 5px 10px;
 }
 
 .SearchModal h4 {
@@ -110,23 +116,33 @@
 .city-list-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  position: relative;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  position: fixed;
+  box-sizing: border-box;
   z-index: 1000;
-  height: 400px;
-
+  top: 60px;
+  left: 50%;
+  width: 100%;
+  height: calc(100% - 60px);
+  transform: translateX(-50%);
+  background-color: #2b2b2b;
+  border-radius: 0px 0px 5px 5px;
 }
 
-.loading-cities-container {
+.city-list-header {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-left: 10px;
-  width: 30px;
-  height: 30px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.city-list-header svg {
+  margin-left: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.city-list-header > h3 {
+  font-size: 1.4em;
 }
 
 .city-list-items {
@@ -163,7 +179,12 @@
   flex-direction: column;
   height: 275px;
   overflow: scroll;
+  scrollbar-width: none;
   margin: 5px 0px 20px 0px;
+}
+
+.recent-search-container::-webkit-scrollbar {
+  display: none;
 }
 
 .recent-search-city {

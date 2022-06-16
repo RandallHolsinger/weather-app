@@ -65,7 +65,6 @@ module.exports = {
 
     search: async (req, res) => {
         const {city, unit} = req.params
-        console.log('hitting search backend!', req.params)
         try {
             await axios({
                 method: 'GET',

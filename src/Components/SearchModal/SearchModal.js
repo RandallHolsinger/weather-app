@@ -8,9 +8,9 @@ import axios from 'axios'
 
 function SearchModal(props) {
   
-  const [isLoadingCities, setLoadingCities] = useState(false)
+  const [isLoadingCities, setLoadingCities] = useState(true)
   const [cityList, setCityList] = useState([])
-  const [showCityList, setShowCityList] = useState(false)
+  const [showCityList, setShowCityList] = useState(true)
   
   const getCitiesList = (input) => {
     axios.get(`/api/cities/${input}`).then(res => {
@@ -79,10 +79,10 @@ function SearchModal(props) {
     )
   })
   
-  const {city, region, country, setSearchModal} = props.currentLocation.location
+  const {city, region, country} = props.currentLocation.location
   return(
       <div className="SearchModal">
-        <OutsideClickHandler onOutsideClick={() => setSearchModal(false)}>
+        <OutsideClickHandler onOutsideClick={() => props.setSearchModal(false)}>
           <div className='search-container'>
             <div className="search-input">
               <span><FontAwesomeIcon icon={faMagnifyingGlass} /></span>
@@ -94,11 +94,22 @@ function SearchModal(props) {
                 onKeyDown={handleKeyDownSearch}
               />
             </div>
-            <span><FontAwesomeIcon icon={faX} onClick={() => setSearchModal(false)} /></span>
+            <span><FontAwesomeIcon icon={faX} onClick={() => props.setSearchModal(false)} /></span>
           </div>
           {showCityList ? 
             <div className="city-list-container">
-              {isLoadingCities ? <RotatingLines /> : <div>{mappedCitiesList}</div>}
+              {isLoadingCities ? 
+                <div className="city-list-header">
+                  <RotatingLines /> 
+                  <h3>Searching...</h3>
+                </div>
+              :
+                <div className="city-list-header">
+                  <h3>Search Results</h3>
+                </div>
+              }
+              <hr/>
+              {mappedCitiesList}
             </div>
           :
             null
@@ -110,7 +121,6 @@ function SearchModal(props) {
               <h4>{city},{' '}{region}{' '} - {' '}{country}</h4>
             </div>
           </div>
-          <hr/>
           <h3>Recent Searches</h3>
           <div className='recent-search-container'>
             {mappedRecentSearches}
