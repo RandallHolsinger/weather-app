@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './SearchModal.css'
 import { RotatingLines } from 'react-loader-spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,6 +10,7 @@ function SearchModal(props) {
   
   const [isLoadingCities, setLoadingCities] = useState(false)
   const [cityList, setCityList] = useState([])
+  const [showCityList, setShowCityList] = useState(false)
   
   const getCitiesList = (input) => {
     axios.get(`/api/cities/${input}`).then(res => {
@@ -20,19 +21,20 @@ function SearchModal(props) {
   
   const weatherSearch = (city) => {
     console.log('hitting weather search', city)
-    const {weatherUnit, setWeather, recentSearches, setRecentSearches, handleSearchModal} = props
+    const {weatherUnit, setWeather, recentSearches, setRecentSearches, setSearchModal} = props
     console.log('hitting weather search modal with unit', weatherUnit)
     axios.get(`/api/weather/location/${city}/${weatherUnit}`).then(res => {
       setWeather(res.data)
       setRecentSearches(prevSearches => [res.data, ...prevSearches])
       console.log('recent search array list', recentSearches)
-      handleSearchModal()
+      setSearchModal(false)
     })
   }
     
   const handleCitiesSearch = (input) => {
     if(input.length >= 2) {
       setLoadingCities(true)
+      setShowCityList(true)
       getCitiesList(input)
     } 
     if(input.length <= 2) {
@@ -40,6 +42,7 @@ function SearchModal(props) {
     }
     if(input.length === 0){
       setLoadingCities(false)
+      setShowCityList(false)
     }
   } 
   
@@ -48,6 +51,7 @@ function SearchModal(props) {
     if(event.key === "Enter") {
       console.log('hitting enter key')
       weatherSearch(event.target.value)
+
     } 
     if(event.key === "Backspace") {
       // handleCitiesSearch(event)
@@ -75,10 +79,10 @@ function SearchModal(props) {
     )
   })
   
-  const {city, region, country} = props.currentLocation.location
+  const {city, region, country, setSearchModal} = props.currentLocation.location
   return(
       <div className="SearchModal">
-        <OutsideClickHandler onOutsideClick={() => props.setSearchModal(false)}>
+        <OutsideClickHandler onOutsideClick={() => setSearchModal(false)}>
           <div className='search-container'>
             <div className="search-input">
               <span><FontAwesomeIcon icon={faMagnifyingGlass} /></span>
@@ -90,17 +94,21 @@ function SearchModal(props) {
                 onKeyDown={handleKeyDownSearch}
               />
             </div>
-            <span><FontAwesomeIcon icon={faX} onClick={() => props.setSearchModal(false)} /></span>
+            <span><FontAwesomeIcon icon={faX} onClick={() => setSearchModal(false)} /></span>
           </div>
+          {showCityList ? 
+            <div className="city-list-container">
+              {isLoadingCities ? <RotatingLines /> : <div>{mappedCitiesList}</div>}
+            </div>
+          :
+            null
+          } 
           <h3>Current Location</h3>
           <div className="current-location-container">
             <div onClick={() => weatherSearch(city)}>
               <span><FontAwesomeIcon icon={faLocationArrow} /></span>
               <h4>{city},{' '}{region}{' '} - {' '}{country}</h4>
             </div>
-          </div>
-          <div className="city-list-container">
-            {isLoadingCities ? <RotatingLines /> : <div>{mappedCitiesList}</div>}
           </div>
           <hr/>
           <h3>Recent Searches</h3>
