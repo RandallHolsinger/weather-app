@@ -26,7 +26,6 @@ function App() {
 
   const getCurrentLocation = () => {
     if(!navigator.geolocation) {
-        console.log('Geolocation services has been disabled by user')
         getDefaultWeather()
     } else {
         const handleSuccess = position => {
@@ -41,17 +40,14 @@ function App() {
   }
   
   const getCurrentWeather = (lat, lon) => {
-    console.log('hitting current weather with unit', weatherUnit)
     axios.get(`/api/weather/location/${lat}/${lon}/${weatherUnit}`).then(res => {
       setWeather(res.data)
       setCurrentLocation(res.data)
-      console.log('here is the data', res.data)
       setLoading(false)
     })
   }
 
   const getDefaultWeather = () => {
-    console.log('hitting default weather with unit', weatherUnit)
     axios.get(`/api/weather/default/${weatherUnit}`).then(res => {
       setWeather(res.data)
       setLoading(false)

@@ -8,7 +8,7 @@ import axios from 'axios'
 
 function SearchModal(props) {
   
-  const [isLoadingCities, setLoadingCities] = useState(true)
+  const [isLoadingCities, setLoadingCities] = useState(false)
   const [cityList, setCityList] = useState([])
   const [showCityList, setShowCityList] = useState(true)
   
@@ -20,13 +20,10 @@ function SearchModal(props) {
   }
   
   const weatherSearch = (city) => {
-    console.log('hitting weather search', city)
-    const {weatherUnit, setWeather, recentSearches, setRecentSearches, setSearchModal} = props
-    console.log('hitting weather search modal with unit', weatherUnit)
+    const {weatherUnit, setWeather, setRecentSearches, setSearchModal} = props
     axios.get(`/api/weather/location/${city}/${weatherUnit}`).then(res => {
       setWeather(res.data)
       setRecentSearches(prevSearches => [res.data, ...prevSearches])
-      console.log('recent search array list', recentSearches)
       setSearchModal(false)
     })
   }
@@ -47,9 +44,7 @@ function SearchModal(props) {
   } 
   
   const handleKeyDownSearch = (event) => {
-    console.log('here is event', event)
     if(event.key === "Enter") {
-      console.log('hitting enter key')
       weatherSearch(event.target.value)
 
     } 

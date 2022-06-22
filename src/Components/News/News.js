@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from 'react'
 import { RotatingLines } from 'react-loader-spinner'
-import ArticleModal from '../ArticleModal/ArticleModal'
 import axios from 'axios'
 import './News.css'
 
