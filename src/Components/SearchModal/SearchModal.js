@@ -10,7 +10,7 @@ function SearchModal(props) {
   
   const [isLoadingCities, setLoadingCities] = useState(false)
   const [cityList, setCityList] = useState([])
-  const [showCityList, setShowCityList] = useState(true)
+  const [showCityList, setShowCityList] = useState(false)
   
   const getCitiesList = (input) => {
     axios.get(`/api/cities/${input}`).then(res => {
@@ -49,7 +49,7 @@ function SearchModal(props) {
 
     } 
     if(event.key === "Backspace") {
-      // handleCitiesSearch(event)
+      handleCitiesSearch(event)
     }
   }
    
@@ -57,9 +57,8 @@ function SearchModal(props) {
   const mappedCitiesList = cityList.map((city, index) => {
     return(
       <div key={index} onClick={() => (weatherSearch(city.name),  setCityList([]))} className="city-list-items">
-          <span>{city.name},</span>{' '}
-          {city.adminDivision1 ? <span>{city.adminDivision1.name}</span> : null}{' '}
-          <span>( {city.country.id} )</span>
+          <span><FontAwesomeIcon icon={faCity}/></span>
+          <h4>{city.name},{' '}{city.adminDivision1 ? <>{city.adminDivision1.name}</>: null}{' '} - {' '}{city.country.id}</h4>
       </div>
     )
   })
@@ -85,7 +84,7 @@ function SearchModal(props) {
                 type="text" 
                 list='cities' 
                 placeholder='City, State, Country...' 
-                // onChange={(e) => (handleCitiesSearch(e.target.value))}
+                onChange={(e) => (handleCitiesSearch(e.target.value))}
                 onKeyDown={handleKeyDownSearch}
               />
             </div>
@@ -103,7 +102,6 @@ function SearchModal(props) {
                   <h3>Search Results</h3>
                 </div>
               }
-              <hr/>
               {mappedCitiesList}
             </div>
           :

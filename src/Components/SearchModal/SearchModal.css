@@ -103,6 +103,7 @@
 
 .current-location-container span {
   font-size: 1.3em;
+  margin-left: 5px;
 }
 
 .current-location-container h4 {
@@ -143,34 +144,30 @@
 
 .city-list-header > h3 {
   font-size: 1.4em;
+  margin: 5px 0px 0px 10px;
 }
 
 .city-list-items {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  border: .5px solid #fff;
+  background-color: #0748b0;
+  border-radius: 5px;
+  margin: 0px 15px 10px 15px;
+  padding: 5px;
   color: #fff;
-  padding: 15px;
   font-weight: 500;
 }
-.city-list-items:first-child {
-  border-top: none ;
+
+.city-list-items > span {
+  margin-left: 5px;
 }
 
-.city-list-ites:hover {
+.city-list-items:hover {
   cursor: pointer;
-  background: linear-gradient(180deg, #5d7fd0 , #0748b0, #14446c);
-  transition: .5s;
+  transform: scale(1.025);
 }
 
-.city-list-items span:nth-child(1) {
-  margin-right: 10px;
-}
-
-.city-list-items span:nth-child(2) {
-  margin-right: 5px;
-}
 
 /*///// Recent Search /////*/
 
@@ -196,6 +193,10 @@
   padding: 5px;
   background-color: #0748b0;
   color: #fff;
+}
+
+.recent-search-city span {
+  margin-left: 5px;
 }
 
 /*///// Hover Effects /////*/
