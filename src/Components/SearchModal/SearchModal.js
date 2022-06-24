@@ -114,7 +114,10 @@ function SearchModal(props) {
               <h4>{city},{' '}{region}{' '} - {' '}{country}</h4>
             </div>
           </div>
-          <h3>Recent Searches</h3>
+          <div className="recent-search-header">
+            <h3>Recent Searches</h3>
+            <button onClick={() => props.setRecentSearches([])}>CLEAR</button>
+          </div>
           <div className='recent-search-container'>
             {mappedRecentSearches}
           </div>

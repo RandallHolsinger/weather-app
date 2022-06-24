@@ -19,10 +19,6 @@
   padding: 10px 0px 5px 10px;
 }
 
-.SearchModal h3:nth-child(4) {
-  padding: 0px 0px 5px 10px;
-}
-
 .SearchModal h4 {
   padding: 10px;
 }
@@ -180,6 +176,30 @@
   margin: 5px 0px 20px 0px;
 }
 
+.recent-search-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recent-search-header h3 {
+  padding: 0px 0px 5px 10px;
+}
+
+.recent-search-header button {
+  background-color: #0748b0;
+  border: none;
+  color: #fff;
+  font-size: .8em;
+  letter-spacing: .1em;
+  font-weight: 800;
+  border-radius: 5px;
+  width: 75px;
+  margin-right: 20px;
+  padding: 5px;
+  cursor: pointer;
+}
+
 .recent-search-container::-webkit-scrollbar {
   display: none;
 }
@@ -199,11 +219,11 @@
   margin-left: 5px;
 }
 
-/*///// Hover Effects /////*/
-
-.current-location-container:hover, .recent-search-city:hover {
+.recent-search-city:hover {
   transform: scale(1.025);
 }
+
+
 
 
 
