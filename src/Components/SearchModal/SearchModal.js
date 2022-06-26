@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import './SearchModal.css'
 import { RotatingLines } from 'react-loader-spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass, faX, faLocationArrow, faCity } from '@fortawesome/free-solid-svg-icons'
 import OutsideClickHandler from 'react-outside-click-handler';
 import axios from 'axios'
+import { useEffect } from 'react';
 
 function SearchModal(props) {
   
@@ -12,6 +13,11 @@ function SearchModal(props) {
   const [searchInput, setSearchInput] = useState('')
   const [cityList, setCityList] = useState([])
   const [showCityList, setShowCityList] = useState(false)
+  const searchInputRef = useRef()
+
+  useEffect(() => {
+     searchInputRef.current.focus()
+  }, [])
   
   const getCitiesList = (input) => {
     axios.get(`/api/cities/${input}`).then(res => {
@@ -86,6 +92,7 @@ function SearchModal(props) {
                 list='cities' 
                 placeholder='City, State, Country...' 
                 value={searchInput}
+                ref={searchInputRef}
                 onChange={(e) => (handleCitiesSearch(e.target.value), setSearchInput(e.target.value))}
                 onKeyDown={handleKeyDownSearch}
               />
