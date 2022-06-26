@@ -127,9 +127,24 @@
 
 .city-list-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 5px;
   margin-bottom: 5px;
+}
+
+.city-list-header button {
+  background-color: #0748b0;
+  border: none;
+  color: #fff;
+  font-size: .8em;
+  letter-spacing: .1em;
+  font-weight: 800;
+  border-radius: 5px;
+  width: 75px;
+  margin-right: 20px;
+  padding: 5px;
+  cursor: pointer;
 }
 
 .city-list-header svg {

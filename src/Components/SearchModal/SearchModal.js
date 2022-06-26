@@ -9,6 +9,7 @@ import axios from 'axios'
 function SearchModal(props) {
   
   const [isLoadingCities, setLoadingCities] = useState(false)
+  const [searchInput, setSearchInput] = useState('')
   const [cityList, setCityList] = useState([])
   const [showCityList, setShowCityList] = useState(false)
   
@@ -84,7 +85,8 @@ function SearchModal(props) {
                 type="text" 
                 list='cities' 
                 placeholder='City, State, Country...' 
-                onChange={(e) => (handleCitiesSearch(e.target.value))}
+                value={searchInput}
+                onChange={(e) => (handleCitiesSearch(e.target.value), setSearchInput(e.target.value))}
                 onKeyDown={handleKeyDownSearch}
               />
             </div>
@@ -100,6 +102,7 @@ function SearchModal(props) {
               :
                 <div className="city-list-header">
                   <h3>Search Results</h3>
+                  <button onClick={() => (setCityList([]), setSearchInput(''))}>CLEAR</button>
                 </div>
               }
               {mappedCitiesList}
