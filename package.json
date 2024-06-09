@@ -15,7 +15,6 @@
     "express": "^4.17.2",
     "font-awesome": "^4.7.0",
     "react": "^17.0.2",
-    "react-carousel-responsive": "^0.0.31",
     "react-dom": "^17.0.2",
     "react-fade-in": "^2.0.1",
     "react-loader-spinner": "^6.0.0-0",

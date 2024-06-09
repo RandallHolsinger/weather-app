@@ -10,7 +10,7 @@
     color: #fff;
     margin: 20px 10px 10px 10px;
     border-radius: 5px;
-    box-shadow: 0px 20px 30px #000;
+    box-shadow: 3px 3px 3px #000;
     height: auto;
 }
 
@@ -62,7 +62,7 @@
   }
   .daily-details-container {
     box-shadow: 3px 3px 3px #000;
-   height: 325px;
+    height: 325px;
   }
   .daily-details-container h3 {
     font-size: 1.5em;
