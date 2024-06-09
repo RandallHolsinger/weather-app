@@ -26,3 +26,9 @@ app.get('/api/weather/location/:city/:unit', ctrl.search)
 
 //Get News
 app.get('/api/news/', ctrl.news)
+
+//Send Html File
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+});
