@@ -6,6 +6,8 @@ const ctrl = require('./controllers')
 
 app.use(express.json())
 
+app.use(express.static( `${__dirname}/../build` ))
+
 const {SERVER_PORT} = process.env
 
 app.listen(SERVER_PORT, () => console.log(`Connected To Server Port: #${SERVER_PORT}`))
