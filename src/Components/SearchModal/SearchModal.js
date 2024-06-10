@@ -79,10 +79,10 @@ function SearchModal(props) {
       </div>
     )
   })
-  
-  const {city, region, country} = props.currentLocation.location
+  console.log('props ==>', props)
+
   return(
-      <div className="SearchModal">
+    <div className="SearchModal">
         <OutsideClickHandler onOutsideClick={() => props.setSearchModal(false)}>
           <div className='search-container'>
             <div className="search-input">
@@ -95,7 +95,7 @@ function SearchModal(props) {
                 ref={searchInputRef}
                 onChange={(e) => (handleCitiesSearch(e.target.value), setSearchInput(e.target.value))}
                 onKeyDown={handleKeyDownSearch}
-              />
+                />
             </div>
             <span><FontAwesomeIcon icon={faX} onClick={() => props.setSearchModal(false)} /></span>
           </div>
@@ -107,7 +107,7 @@ function SearchModal(props) {
                   <h3>Searching...</h3>
                 </div>
               :
-                <div className="city-list-header">
+              <div className="city-list-header">
                   <h3>Search Results</h3>
                   <button onClick={() => (setCityList([]), setSearchInput(''))}>CLEAR</button>
                 </div>
@@ -119,10 +119,17 @@ function SearchModal(props) {
           } 
           <h3>Current Location</h3>
           <div className="current-location-container">
-            <div onClick={() => weatherSearch(city)}>
+          {props.currentLocation.location ?
+            <div onClick={() => weatherSearch(props.currentLocation.location.city)}>
               <span><FontAwesomeIcon icon={faLocationArrow} /></span>
-              <h4>{city},{' '}{region}{' '} - {' '}{country}</h4>
+              <h4>{props.currentLocation.location.city},{' '}{props.currentLocation.location.region}{' '} - {' '}{props.currentLocation.location.country}</h4>
             </div>
+            :
+            <div>
+              <span><FontAwesomeIcon icon={faLocationArrow} /></span>
+              <h4>Location Services Not Enabled</h4>
+            </div>
+          } 
           </div>
           <div className="recent-search-header">
             <h3>Recent Searches</h3>

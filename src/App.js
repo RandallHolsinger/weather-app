@@ -16,6 +16,7 @@ function App() {
   
   const [currentWeather, setWeather] = useState([])
   const [currentLocation, setCurrentLocation] = useState([])
+  const defaultLocation = {lat: 37.773972, lon:-122.431297}
   const [isLoading, setLoading] = useState(true)
   const [searchModal, setSearchModal] = useState(false)
   const [recentSearches, setRecentSearches] = useState([])
@@ -24,34 +25,27 @@ function App() {
   const [weatherUnit, setWeatherUnit] = useState('f')
 
   const getCurrentLocation = () => {
-    console.log(navigator.geolocation)
-    if('geolocation' in navigator) {
-        console.log('not getting location!')
+      const handleSuccess = position => {
+        const {latitude, longitude} = position.coords
+        getCurrentWeather(latitude, longitude)
+      }
+      const handleError = err => {
         getDefaultWeather()
-    } else {
-        const handleSuccess = position => {
-          const {latitude, longitude} = position.coords
-          getCurrentWeather(latitude, longitude)
-        }
-        const handleError = err => {
-          console.log({errorMessage: `${err}`}) 
-        }
-        navigator.geolocation.getCurrentPosition(handleSuccess, handleError)
-    }
+      }
+      navigator.geolocation.getCurrentPosition(handleSuccess, handleError)
   }
   
   const getCurrentWeather = (lat, lon) => {
     axios.get(`/api/weather/location/${lat}/${lon}/${weatherUnit}`).then(res => {
       setWeather(res.data)
-      console.log('data here ==>', res.data)
       setCurrentLocation(res.data)
       setLoading(false)
     })
   }
 
   const getDefaultWeather = () => {
-    let lat = 37.773972
-    let lon = -122.431297
+    const {lat} = defaultLocation
+    const {lon} = defaultLocation
     axios.get(`/api/weather/location/${lat}/${lon}/${weatherUnit}`).then(res => {
       setWeather(res.data)
       setLoading(false)
