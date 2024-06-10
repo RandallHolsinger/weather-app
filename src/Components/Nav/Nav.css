@@ -5,7 +5,7 @@ nav {
     width: 100%;
     z-index: 1000;
     top: 0;
-    background-color: #0748b0;
+    background-color: #2b2b2b;
     box-shadow: 0 0 3px 3px #000;
 }
 
@@ -18,13 +18,15 @@ nav ul {
 }
 
 nav ul li {
-    color: #fff;
     font-size: 1.1em;
 }
 
 nav ul li:nth-child(1) {
   font-size: 1.2em;
+  color: #29bef5
 }
+
+
 
 nav ul li:nth-child(2) {
     display: flex;
@@ -34,12 +36,13 @@ nav ul li:nth-child(2) {
 
 .location-info {
     margin: 0 20px;
-    box-shadow: 0 0 10px 1px inset #000;
+    box-shadow: 0 0 1px 1px inset #fff;
     border-radius: 5px;
 }
 
 .location-info-mobile {
-    box-shadow: 0 0 10px 1px inset #000;
+    box-shadow: 0 0 1px 1px inset #fff;
+    color: #fff;
     border-radius: 5px;
     margin: 0 10px;
     width: 200px;
