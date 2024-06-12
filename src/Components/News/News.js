@@ -1,5 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import { RotatingLines } from 'react-loader-spinner'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faNewspaper } from '@fortawesome/fontawesome-free-solid'
 import axios from 'axios'
 import './News.css'
 
@@ -21,7 +23,14 @@ function News(props) {
 
     return(
         <div className="News">
-               <h3>News</h3>
+              <div className='news-title-container' >
+                <span>
+                  <FontAwesomeIcon icon={faNewspaper} />
+                </span>
+               <h3>
+                 News
+               </h3>
+               </div>
                <div className="news-container">
                {isLoadingNews ?
                  <div className="news-loading-container">
