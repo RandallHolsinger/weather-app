@@ -31,13 +31,17 @@
     font-size: 3em;
 }
 
+.temp-desc h3 {
+    font-size: 1.5em;
+}
+
 .temp-desc h4:nth-child(2) {
     font-size: 1.4em;
 }
 
 .temp-desc h4:nth-child(3) {
-    margin-top: 5px;
-    font-size: 1em;
+    margin: 5px 0px 10px 0px;
+    font-size: 1.3em;
 }
 
 .current-weather-info img {
