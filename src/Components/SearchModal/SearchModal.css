@@ -130,12 +130,32 @@
   border-radius: 0px 0px 5px 5px;
 }
 
-.city-list-header {
+
+.city-list-header-searching {
   display: flex;
   align-items: center;
   padding: 5px;
   margin-bottom: 5px;
 }
+
+.city-list-header-searching svg {
+  margin-left: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.city-list-header-searching > h3 {
+  font-size: 1.4em;
+}
+
+.city-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
 
 .city-list-header button {
   background-color: #29bef5;
@@ -147,20 +167,10 @@
   font-weight: 800;
   border-radius: 5px;
   width: 75px;
-  margin-right: 20px;
   padding: 5px;
   cursor: pointer;
 }
 
-.city-list-header svg {
-  margin-left: 5px;
-  width: 30px;
-  height: 30px;
-}
-
-.city-list-header > h3 {
-  font-size: 1.4em;
-}
 
 .city-list-items {
   display: flex;
