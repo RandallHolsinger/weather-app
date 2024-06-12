@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import './App.css';
-import { Circles } from 'react-loader-spinner';
+import { Blocks } from 'react-loader-spinner';
 import Nav from './Components/Nav/Nav';
 import CurrentWeather from './Components/CurrentWeather/CurrentWeather'
 import FiveDay from './Components/FiveDay/FiveDay';
@@ -10,6 +10,7 @@ import News from './Components/News/News'
 import SearchModal from './Components/SearchModal/SearchModal';
 import ArticleModal from './Components/ArticleModal/ArticleModal';
 import Footer from './Components/Footer/Footer';
+import { clear } from '@testing-library/user-event/dist/clear';
 
 
 function App() {
@@ -70,7 +71,15 @@ function App() {
     <div className="App">
       {isLoading ? 
         <div className='main-loader-container'>
-          <Circles ariaLabel="loading-indicator" color='#fff' height='150' width='150' />
+          <Blocks
+            height="150"
+            width="150"
+            color="#4fa94d"
+            ariaLabel="blocks-loading"
+            wrapperStyle={{}}
+            wrapperClass="blocks-wrapper"
+            visible={true}
+            />
           <h2>Loading Weather</h2>
         </div>
         :

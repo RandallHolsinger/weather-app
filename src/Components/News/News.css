@@ -10,7 +10,7 @@
     box-sizing: border-box;
     color: #fff;
     padding: 25px;
-    background-color: #29bef5;
+    background: linear-gradient(180deg,#29bef5, #000);
     border-radius: 5px;
     margin: 20px 10px;
     font-size: 1.3em;
@@ -35,16 +35,12 @@
     margin: 20px 10px 0px 10px;
 }
 
-.article-container:hover {
-    transform: scale(1.04);
-}
-
 .article-header {
     box-sizing: border-box;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background-color: #29bef5;
+    background: linear-gradient(180deg,#29bef5, #000);
     border-radius: 5px 5px 0 0;
     padding: 20px;
 }

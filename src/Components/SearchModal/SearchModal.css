@@ -1,14 +1,13 @@
 /*///// Search Container //////*/
 .SearchModal {
   position: fixed;
-  z-index: 1000;
-  top: 65px;
+  z-index: 999;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
-  width: 95%;
-  border-radius: 5px;
-  box-shadow: 3px 3px 3px #000;
+  width: 100%;
   background-color: #2b2b2b;
+  box-shadow: 0px 3px #000;
 }
 
 .SearchModal h3 {
@@ -26,7 +25,7 @@
 .search-container {
   display: flex;
   justify-content: space-between;
-  background-color: #0748b0;
+  background-color: #2b2b2b;
   align-items: center;
   border-radius: 5px 5px 0px 0px;
   padding: 15px;
@@ -45,19 +44,22 @@
 }
 
 .search-input span {
-  font-size: 1.3em;
+  padding: 4.8px;
+  border: 1px solid #29bef5;
+  border-radius: 5px 0px 0px 5px;
 }
 
 .search-input > input {
   border: none;
   padding: 5px;
   font-size: 1em;
-  box-shadow: 0 0 10px 1px inset #000;
-  background: #0748b0;
+  border-top: 1px solid #29bef5;
+  border-right: 1px solid #29bef5;
+  border-bottom: 1px solid #29bef5;
+  background: #2b2b2b;
   color: #fff;
   width: 100%;
-  margin-left: 10px;
-  border-radius: 5px;
+  border-radius: 0px 5px 5px 0px;
 }
 
 .search-input input::placeholder {
@@ -66,6 +68,7 @@
 }
 
 .search-input > input:focus {
+  outline: none !important;
   color: #fff;
 }
 
@@ -87,12 +90,15 @@
 }
 
 .current-location-container div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0px 15px 0px 15px;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
-  padding: 5px;
-  background-color: #0748b0;
+  padding: 10px;
+  background: linear-gradient(180deg,#29bef5, #000);
   display: flex;
   align-items: center;
 }
@@ -103,7 +109,6 @@
 }
 
 .current-location-container h4 {
-  background-color: #0748b0;
   font-size: 1em;
 }
 
@@ -134,7 +139,8 @@
 }
 
 .city-list-header button {
-  background-color: #0748b0;
+  background-color: #29bef5;
+  box-shadow: 0px 2px 2px #000;
   border: none;
   color: #fff;
   font-size: .8em;
@@ -162,7 +168,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-color: #0748b0;
+  border: 1px solid #29bef5;
   border-radius: 5px;
   margin: 0px 15px 10px 15px;
   padding: 5px;
@@ -173,12 +179,6 @@
 .city-list-items > span {
   margin-left: 5px;
 }
-
-.city-list-items:hover {
-  cursor: pointer;
-  transform: scale(1.025);
-}
-
 
 /*///// Recent Search /////*/
 
@@ -202,7 +202,7 @@
 }
 
 .recent-search-header button {
-  background-color: #0748b0;
+  background-color: #29bef5;
   border: none;
   color: #fff;
   font-size: .8em;
@@ -213,6 +213,7 @@
   margin-right: 20px;
   padding: 5px;
   cursor: pointer;
+  box-shadow: 0px 2px 2px #000;
 }
 
 .recent-search-container::-webkit-scrollbar {
@@ -225,22 +226,15 @@
   cursor: pointer;
   margin: 10px 15px 0px 15px;
   border-radius: 5px;
-  padding: 5px;
-  background-color: #0748b0;
+  padding: 3px;
+  /* background-color: #29bef5; */
+  border: 1px solid #29bef5;
   color: #fff;
 }
 
 .recent-search-city span {
   margin-left: 5px;
 }
-
-.recent-search-city:hover {
-  transform: scale(1.025);
-}
-
-
-
-
 
 
 /*///// Media Queries /////*/

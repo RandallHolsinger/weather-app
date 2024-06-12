@@ -11,7 +11,7 @@
     border-radius: 5px;
     width: 100%;
     color: #fff;
-    background-color: #29bef5;
+    background: linear-gradient(-360deg, #000, #29bef5);
 }
 
 .current-weather-info {

@@ -19,14 +19,15 @@ function Nav(props) {
        <OutsideClickHandler onOutsideClick={() => setShowSettings(false)}>
          <nav>
             <ul>
-              <li onClick={() => {setShowSettings(!showSettings)}}><FontAwesomeIcon icon={faGear}/></li>
+              <li onClick={() => {setShowSettings(!showSettings)}}>
+                <FontAwesomeIcon icon={faGear}/>
+              </li>
               <li>
                 <span><FontAwesomeIcon icon={faLocationArrow}/></span>
-                <marquee className='location-info-mobile' direction='left' scrollamount='2'>
-                  <span>{weatherData.location.city},{weatherData.location.region}{' - '}{weatherData.location.country}</span>
-                </marquee>
-                <span className='location-info'>{weatherData.location.city},{weatherData.location.region}{' - '}{weatherData.location.country}</span>
-                <span><FontAwesomeIcon icon={faMagnifyingGlass} onClick={() => setSearchModal(!searchModal)} /></span>
+                {weatherData.location.city},{' '}{weatherData.location.region}
+              </li>
+              <li>
+                <span className='search-icon'><FontAwesomeIcon icon={faMagnifyingGlass} onClick={() => setSearchModal(!searchModal)} /></span>
               </li>
             </ul>
           </nav>

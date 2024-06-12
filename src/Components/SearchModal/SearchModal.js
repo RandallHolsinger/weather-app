@@ -122,7 +122,8 @@ function SearchModal(props) {
           {props.currentLocation.location ?
             <div onClick={() => weatherSearch(props.currentLocation.location.city)}>
               <span><FontAwesomeIcon icon={faLocationArrow} /></span>
-              <h4>{props.currentLocation.location.city},{' '}{props.currentLocation.location.region}{' '} - {' '}{props.currentLocation.location.country}</h4>
+              <h4>{props.currentLocation.location.city},{' '}{props.currentLocation.location.region}</h4>
+              <h4>{props.currentLocation.location.country}</h4>
             </div>
             :
             <div>
