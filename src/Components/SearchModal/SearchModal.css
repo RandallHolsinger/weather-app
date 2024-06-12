@@ -2,7 +2,7 @@
 .SearchModal {
   position: fixed;
   z-index: 999;
-  top: 60px;
+  top: 55px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -132,7 +132,6 @@
 
 .city-list-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 5px;
   margin-bottom: 5px;
@@ -155,13 +154,12 @@
 
 .city-list-header svg {
   margin-left: 5px;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 }
 
 .city-list-header > h3 {
   font-size: 1.4em;
-  margin: 5px 0px 0px 10px;
 }
 
 .city-list-items {
@@ -227,7 +225,6 @@
   margin: 10px 15px 0px 15px;
   border-radius: 5px;
   padding: 3px;
-  /* background-color: #29bef5; */
   border: 1px solid #29bef5;
   color: #fff;
 }

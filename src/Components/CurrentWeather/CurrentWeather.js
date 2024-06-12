@@ -22,7 +22,7 @@ function CurrentWeather(props) {
         <div className='CurrentWeather'>
             {isLoading ?
               <div className='loader-container'>
-                <RotatingLines width="100" strokeColor="#fff"/>
+                <RotatingLines width="100" color="#29bef5"/>
               </div>
               :
               <div className='current-weather-container'>

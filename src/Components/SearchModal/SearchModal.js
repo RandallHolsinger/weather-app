@@ -101,9 +101,13 @@ function SearchModal(props) {
           </div>
           {showCityList ? 
             <div className="city-list-container">
-              {isLoadingCities ? 
+              {!isLoadingCities ? 
                 <div className="city-list-header">
-                  <RotatingLines /> 
+                  <RotatingLines 
+                    strokeColor="#29bef5"
+                    height="50"
+                    width="20"
+                  /> 
                   <h3>Searching...</h3>
                 </div>
               :
